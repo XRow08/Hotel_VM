@@ -26,6 +26,9 @@ type SupplyProps = {
 export function InvistaForm(card: CardProps) {
   const { register, handleSubmit } = useForm();
   const [supply, setSupply] = useState<SupplyProps>();
+  const [loading, setLoading] = useState(false);
+  const [tx, setTx] = useState<any>();
+
   const user = useGetUser();
   const style = `bg-white bg-opacity-10 backdrop-blur-md h-[65px] flex items-center justify-start ${
     supply ? "opacity-100" : "opacity-50"
@@ -40,12 +43,16 @@ export function InvistaForm(card: CardProps) {
   }, [card]);
 
   async function onSubmit(values: any) {
+    setLoading(true);
+    (document?.getElementById("my_modal_1") as any)?.showModal();
     const contracts = {
       scroll: card.addressScroll,
       aurora: card.addressAurora,
       sepolia: card.addressSepolia,
     };
-    await invista(values.amount, user.walletAddress, contracts);
+    const tx = await invista(values.amount, user.walletAddress, contracts);
+    setTx(tx);
+    setLoading(false);
   }
 
   return (
@@ -53,6 +60,22 @@ export function InvistaForm(card: CardProps) {
       onSubmit={handleSubmit(onSubmit)}
       className="w-full flex justify-center items-center gap-6"
     >
+      <dialog id="my_modal_1" className="modal z-50 w-full">
+        <div className="modal-box w-full">
+          <h3 className="font-bold text-lg">
+            {loading
+              ? "Aguarde a transação..."
+              : "Transação realizada com sucesso!"}
+          </h3>
+          {tx && <p className="py-4 opacity-50 break-words">{tx?.hash}</p>}
+          <div className="modal-action">
+            <form method="dialog">
+              <button className="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+
       <div className="w-3/4 flex flex-col gap-10">
         <div className="grid grid-cols-2 gap-10">
           <div

@@ -28,6 +28,7 @@ export default async function HomeUser() {
           financeiros, mas também a satisfação de contribuir para uma
           agricultura sustentável em solos tropicais.
         </p>
+
         <Link href="/tokenize" className="w-1/2">
           <Button className="w-full">Tokenize sua Safra</Button>
         </Link>

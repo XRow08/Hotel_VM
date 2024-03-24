@@ -39,6 +39,8 @@ export async function invista(
       [address, amountNew]
     );
     console.log("tx2", tx2);
+
+    return tx2;
   } catch (error) {
     console.log(error);
   }
