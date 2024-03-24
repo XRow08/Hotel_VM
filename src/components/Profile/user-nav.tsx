@@ -12,6 +12,8 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 import { createLink } from "@/helpers";
 import { LoggedInUser } from "@lumx-protocol/embedded-wallet";
+import { useAccount, useConnect } from "wagmi";
+import { injected } from "wagmi/connectors";
 
 export const UserNav = ({
   name,
@@ -20,6 +22,9 @@ export const UserNav = ({
   name: string;
   walletAddress: LoggedInUser["walletAddress"];
 }) => {
+  const { connect } = useConnect();
+  const { address } = useAccount();
+
   const getInitialLetters = (name: string) => {
     return name
       ?.split(" ")
@@ -54,6 +59,20 @@ export const UserNav = ({
             </Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>
+        {!address && (
+          <>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem
+              className="cursor-pointer"
+              onClick={() => {
+                connect({ connector: injected() });
+                window.location.reload();
+              }}
+            >
+              Entrar com metamask
+            </DropdownMenuItem>
+          </>
+        )}
         <DropdownMenuSeparator />
         <DropdownMenuItem
           className="cursor-pointer"

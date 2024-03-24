@@ -1,4 +1,3 @@
-"use client";
 import { LoggedInUser } from "@lumx-protocol/embedded-wallet";
 import { useState, useEffect } from "react";
 

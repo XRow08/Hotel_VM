@@ -1,5 +1,5 @@
 import { TokenizeForm } from "@/components/Forms/Tokenize";
-import { TransferTokens } from "@/components/Forms/TransferTokens";
+import { TransferTokensToCred } from "@/components/Forms/TransferTokensToCred";
 import { TokenizeIcon } from "@/components/Icons/tokenizeIcon";
 import { LoteCard } from "@/components/LoteCard";
 import Image from "next/image";
@@ -45,12 +45,12 @@ export default async function Tokenize() {
         <TokenizeForm />
       </div>
 
-      <div className="w-full flex items-center justify-between gap-40 py-10 border-b-4 border-white border-opacity-10">
+      <div className="w-full flex items-start justify-between gap-40 py-10 border-b-4 border-white border-opacity-10">
         <h1 className="font-semibold text-white text-4xl leading-tight w-full">
-          Transfira seus tokens da L1 para a L2 e negocie facilmente em um
-          mercado mais acessível.
+          Transfira seus Tokens da Reserva e transforme-os em Crédito em
+          Circulação.
         </h1>
-        <TransferTokens />
+        <TransferTokensToCred />
       </div>
 
       <div className="bg-white bg-opacity-10 backdrop-blur-md w-full p-16 my-10 rounded-lg border border-white border-opacity-50">

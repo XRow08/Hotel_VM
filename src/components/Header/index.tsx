@@ -2,12 +2,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useGetUser } from "@/hooks/getUser";
 import { UserNav } from "../Profile/user-nav";
+import { useGetUser } from "@/hooks/getUser";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { useAccount, useEnsName } from "wagmi";
+import { Spinner } from "../ui/spinner";
 
 export function Header() {
   const pathname = usePathname();
   const user = useGetUser();
+  const { address } = useAccount();
+  const { data, error, status } = useEnsName({ address });
+
+  console.log(data, error, status);
 
   const getAbbreviatedWalletAddress = (address: string) => {
     return `${address?.slice(0, 4)}...${address?.slice(-4)}`;
@@ -46,30 +53,42 @@ export function Header() {
           }
         />
       </div>
-      {user && (
-        <div className="flex h-10 items-center space-x-4 text-sm">
-          <div className=" text-white flex flex-col items-end">
-            <h4 className="text-sm font-medium">Olá, {user.name}</h4>
-            {pathname !== "/home" && (
-              <h4 className="text-sm font-medium flex gap-1">
-                Conta
-                <span className="text-green-primary">
-                  {pathname === "/invista"
-                    ? "investidor"
-                    : pathname === "/tokenize"
-                    ? "tokenizador"
-                    : null}
-                </span>
-              </h4>
-            )}
-            <p className="text-xs text-gray-300">
-              {getAbbreviatedWalletAddress(user.walletAddress)}
-            </p>
+
+      <div className="flex items-center gap-10">
+        {address ? (
+          <ConnectButton />
+        ) : user ? (
+          <div className="flex h-10 items-center space-x-4 text-sm">
+            <div className=" text-white flex flex-col items-end">
+              <h4 className="text-sm font-medium">Olá, {user.name}</h4>
+              {pathname !== "/home" && (
+                <h4 className="text-sm font-medium flex gap-1">
+                  Conta
+                  <span className="text-green-primary">
+                    {pathname === "/invista"
+                      ? "investidor"
+                      : pathname === "/tokenize"
+                      ? "tokenizador"
+                      : null}
+                  </span>
+                </h4>
+              )}
+              <p className="text-xs text-gray-300">
+                {getAbbreviatedWalletAddress(user.walletAddress)}
+              </p>
+            </div>
+            <div className="h-full w-[1px] bg-white bg-opacity-50"></div>
+            <UserNav {...user} />
           </div>
-          <div className="h-full w-[1px] bg-white bg-opacity-50"></div>
-          <UserNav {...user} />
-        </div>
-      )}
+        ) : null}
+        {status === "pending" ? (
+          <Spinner />
+        ) : (
+          <h1 className="text-lg font-semibold text-white">
+            ENS name: <span className="text-green-primary">{data}</span>
+          </h1>
+        )}
+      </div>
     </header>
   );
 }

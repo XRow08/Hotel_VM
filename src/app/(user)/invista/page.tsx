@@ -1,10 +1,7 @@
 import { AgroCard } from "@/components/AgroCard";
-import { Button } from "@/components/Button";
 import { InvistaForm } from "@/components/Forms/Invista";
-import { TransferTokens } from "@/components/Forms/TransferTokens";
 import { TransferTokensTwo } from "@/components/Forms/TransferTokensTwo";
 import Image from "next/image";
-import Link from "next/link";
 
 export default async function Invista() {
   return (
@@ -25,26 +22,7 @@ export default async function Invista() {
           Invista na Safra escolhendo a camada que te atende!
         </h1>
       </div>
-      <div className="w-[80%] flex justify-between mt-16 gap-10">
-        <div className="w-full">
-          <div className="bg-white cursor-pointer flex items-center justify-center bg-opacity-10 backdrop-blur-md w-full px-6 p-4 rounded-lg border border-white border-opacity-50 text-white text-opacity-50">
-            Layer 1
-          </div>
-          <p className="opacity-50 text-center mt-4">
-            Blockchain de primeira camada. Ideal para investidores
-            institucionais e empresas de grande porte.
-          </p>
-        </div>
-        <div className="w-full">
-          <div className="bg-white cursor-pointer flex items-center justify-center bg-opacity-10 backdrop-blur-md w-full px-6 p-4 rounded-lg border border-white border-opacity-50 text-white text-opacity-50">
-            Layer 2
-          </div>
-          <p className="opacity-50 text-center mt-4">
-            Blockchain de segunda camada. Ideal para investidores individuais de
-            menor porte, que buscam minimizar os custos com taxas.
-          </p>
-        </div>
-      </div>
+
       <div className="w-[80%] flex flex-col mt-10 gap-4">
         <div className="flex gap-10 w-full justify-between">
           <div className="bg-white flex items-center cursor-pointer justify-center bg-opacity-10 backdrop-blur-md w-full px-6 p-4 rounded-lg border border-white border-opacity-50 text-white text-opacity-50">
@@ -62,6 +40,26 @@ export default async function Invista() {
           firmemente comprometidos em ampliar nosso escopo para abranger uma
           variedade de outras modalidades agrícolas no futuro próximo.
         </p>
+      </div>
+      <div className="w-[80%] flex justify-between mt-16 gap-10">
+        <div className="w-full">
+          <div className="bg-white cursor-pointer flex items-center justify-center bg-opacity-10 backdrop-blur-md w-full px-6 p-4 rounded-lg border border-white border-opacity-50 text-white text-opacity-50">
+            Aurora
+          </div>
+          <p className="opacity-50 text-center mt-4">
+            Blockchain de primeira camada com compensação de carbono. Mais
+            sustentabilidade em sua tokenização de Safra.
+          </p>
+        </div>
+        <div className="w-full">
+          <div className="bg-white cursor-pointer flex items-center justify-center bg-opacity-10 backdrop-blur-md w-full px-6 p-4 rounded-lg border border-white border-opacity-50 text-white text-opacity-50">
+            Scroll
+          </div>
+          <p className="opacity-50 text-center mt-4">
+            Blockchain de segunda camada. Para agricultores e investidores para
+            mais eficiência na tokenização sem perder a segurança.
+          </p>
+        </div>
       </div>
 
       <div className="w-full my-10 pb-20 border-b-4 border-white border-opacity-10">
@@ -103,9 +101,9 @@ export default async function Invista() {
         </div>
         <InvistaForm />
       </div>
-      <div className="w-full flex items-center justify-between gap-40 py-10 pb-20 border-b-4 border-white border-opacity-10">
+      <div className="w-full flex items-start justify-between gap-40 py-10 pb-20 border-b-4 border-white border-opacity-10">
         <h1 className="font-semibold text-white text-4xl leading-tight w-full">
-          Transfira seus tokens da L2 para L1 e ingresse no mundo dos
+          Transfira seus tokens entre Polygon e Ethereum e ingresse no mundo dos
           investimentos de forma profissional.
         </h1>
         <TransferTokensTwo />

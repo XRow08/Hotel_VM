@@ -1,45 +1,22 @@
 "use server";
 
 import { getBaseApiUrl } from "@/api";
-import config from "../../lumx.json";
-import { typedFetch } from "@/api/typed-fetch";
+import axios from "axios";
 
-type Transaction = {
-  status: string;
-  message: string;
-  transactionHash: string;
-  id: string;
+type Props = {
+  walletId: string;
+  contractId: string;
+  operations: any[];
 };
 
-export const startTransaction = async (
-  walletId: string,
-  prevState: any,
-  formData: FormData
-): Promise<Transaction> => {
-  console.log("minting", walletId, formData, config.itemTypeId);
+export const apiLumx = async (formData: Props): Promise<any> => {
+  console.log("minting", formData);
+  const responseFromTransaction = await axios.post(
+    `${getBaseApiUrl()}/transactions/custom`,
+    formData,
+    { headers: { Authorization: `Bearer ${process.env.LUMX_API_KEY}` } }
+  );
+  console.log("responseFromTransaction", responseFromTransaction);
 
-  const pollTransaction = async () => {
-    const responseFromTransaction = await fetch(
-      `${getBaseApiUrl()}/transactions/custom`,
-      {
-        method: "POST",
-        body: JSON.stringify({
-          walletId: "",
-          contractId: "",
-          operations: [],
-        }),
-        headers: {
-          "Content-type": "application/json",
-          Authorization: `Bearer ${process.env.LUMX_API_KEY}`,
-        },
-      }
-    );
-
-    const dataFromTransaction = await responseFromTransaction.json();
-    return dataFromTransaction;
-  };
-
-  const transactionResult = await pollTransaction();
-
-  return transactionResult;
+  return responseFromTransaction;
 };
