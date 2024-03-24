@@ -1,5 +1,5 @@
 export * from "./transferToEthers";
-export * from "./EthersAndPolygon";
+export * from "./ethersAndPolygon";
 export * from "./executeFunctions";
 export * from "./transferToPolygon";
 export * from "./transferToWallet";

@@ -6,7 +6,6 @@ import { useAccount } from "wagmi";
 import {
   transferToEthers,
   transferToPolygon,
-  transferToWallet,
 } from "@/functions";
 import { useGetUser } from "@/hooks/getUser";
 import { useChainModal } from "@rainbow-me/rainbowkit";

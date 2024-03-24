@@ -2,7 +2,7 @@
 import { useForm } from "react-hook-form";
 import { Button } from "../Button";
 import { useState } from "react";
-import { ethersAndPolygon } from "@/functions/EthersAndPolygon";
+import { ethersAndPolygon } from "@/functions/ethersAndPolygon";
 import { useGetUser } from "@/hooks/getUser";
 
 export function TransferTokensTwo() {
