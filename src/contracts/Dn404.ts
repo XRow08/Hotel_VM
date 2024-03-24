@@ -106,7 +106,10 @@ export interface Dn404Interface extends Interface {
     functionFragment: "balanceOf",
     values: [AddressLike]
   ): string;
-  encodeFunctionData(functionFragment: "burn", values: [BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "burn",
+    values: [AddressLike, BigNumberish]
+  ): string;
   encodeFunctionData(
     functionFragment: "buy",
     values: [BigNumberish, AddressLike]
@@ -523,7 +526,11 @@ export interface Dn404 extends BaseContract {
 
   balanceOf: TypedContractMethod<[owner: AddressLike], [bigint], "view">;
 
-  burn: TypedContractMethod<[amount: BigNumberish], [void], "nonpayable">;
+  burn: TypedContractMethod<
+    [_to: AddressLike, _amount: BigNumberish],
+    [void],
+    "nonpayable"
+  >;
 
   buy: TypedContractMethod<
     [_amount: BigNumberish, _to: AddressLike],
@@ -551,13 +558,13 @@ export interface Dn404 extends BaseContract {
 
   initialize: TypedContractMethod<
     [
-      owner: AddressLike,
+      owner_: AddressLike,
       name_: string,
       symbol_: string,
       initialTokenSupply: BigNumberish,
       initialSupplyOwner: AddressLike,
       updateInterval: BigNumberish,
-      priceFeed: AddressLike
+      _priceFeed: AddressLike
     ],
     [void],
     "nonpayable"
@@ -593,7 +600,7 @@ export interface Dn404 extends BaseContract {
 
   s_baseURI: TypedContractMethod<[], [string], "view">;
 
-  setBaseURI: TypedContractMethod<[baseURI: string], [void], "nonpayable">;
+  setBaseURI: TypedContractMethod<[baseURI_: string], [void], "nonpayable">;
 
   setInterval: TypedContractMethod<
     [newInterval: BigNumberish],
@@ -681,7 +688,11 @@ export interface Dn404 extends BaseContract {
   ): TypedContractMethod<[owner: AddressLike], [bigint], "view">;
   getFunction(
     nameOrSignature: "burn"
-  ): TypedContractMethod<[amount: BigNumberish], [void], "nonpayable">;
+  ): TypedContractMethod<
+    [_to: AddressLike, _amount: BigNumberish],
+    [void],
+    "nonpayable"
+  >;
   getFunction(
     nameOrSignature: "buy"
   ): TypedContractMethod<
@@ -718,13 +729,13 @@ export interface Dn404 extends BaseContract {
     nameOrSignature: "initialize"
   ): TypedContractMethod<
     [
-      owner: AddressLike,
+      owner_: AddressLike,
       name_: string,
       symbol_: string,
       initialTokenSupply: BigNumberish,
       initialSupplyOwner: AddressLike,
       updateInterval: BigNumberish,
-      priceFeed: AddressLike
+      _priceFeed: AddressLike
     ],
     [void],
     "nonpayable"
@@ -774,7 +785,7 @@ export interface Dn404 extends BaseContract {
   ): TypedContractMethod<[], [string], "view">;
   getFunction(
     nameOrSignature: "setBaseURI"
-  ): TypedContractMethod<[baseURI: string], [void], "nonpayable">;
+  ): TypedContractMethod<[baseURI_: string], [void], "nonpayable">;
   getFunction(
     nameOrSignature: "setInterval"
   ): TypedContractMethod<[newInterval: BigNumberish], [void], "nonpayable">;

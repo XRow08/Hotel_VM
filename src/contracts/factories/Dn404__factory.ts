@@ -7,1062 +7,1067 @@ import type { Dn404, Dn404Interface } from "../Dn404";
 
 const _abi = [
   {
-    type: "constructor",
     inputs: [],
     stateMutability: "nonpayable",
+    type: "constructor",
   },
   {
-    type: "fallback",
-    stateMutability: "payable",
-  },
-  {
-    type: "receive",
-    stateMutability: "payable",
-  },
-  {
-    type: "function",
-    name: "SafraHype",
-    inputs: [],
-    outputs: [
-      {
-        name: "",
-        type: "string",
-        internalType: "string",
-      },
-    ],
-    stateMutability: "view",
-  },
-  {
-    type: "function",
-    name: "SafraMedium",
-    inputs: [],
-    outputs: [
-      {
-        name: "",
-        type: "string",
-        internalType: "string",
-      },
-    ],
-    stateMutability: "view",
-  },
-  {
-    type: "function",
-    name: "UPGRADE_INTERFACE_VERSION",
-    inputs: [],
-    outputs: [
-      {
-        name: "",
-        type: "string",
-        internalType: "string",
-      },
-    ],
-    stateMutability: "view",
-  },
-  {
-    type: "function",
-    name: "allowance",
     inputs: [
       {
+        internalType: "address",
+        name: "target",
+        type: "address",
+      },
+    ],
+    name: "AddressEmptyCode",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "ApprovalCallerNotOwnerNorApproved",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "DNAlreadyInitialized",
+    type: "error",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "implementation",
+        type: "address",
+      },
+    ],
+    name: "ERC1967InvalidImplementation",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "ERC1967NonPayable",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "EnforcedPause",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "ExpectedPause",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "FailedInnerCall",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "FnSelectorNotRecognized",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "InsufficientAllowance",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "InsufficientBalance",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "InvalidInitialization",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "LinkMirrorContractFailed",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "MirrorAddressIsZero",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "NotInitializing",
+    type: "error",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
         name: "owner",
         type: "address",
-        internalType: "address",
-      },
-      {
-        name: "spender",
-        type: "address",
-        internalType: "address",
       },
     ],
+    name: "OwnableInvalidOwner",
+    type: "error",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
+    name: "OwnableUnauthorizedAccount",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "ReentrancyGuardReentrantCall",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "SecurityUpgradeable__InvalidOwner",
+    type: "error",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "addr",
+        type: "address",
+      },
+    ],
+    name: "SecurityUpgradeable__NotAllowed",
+    type: "error",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "addr",
+        type: "address",
+      },
+    ],
+    name: "SecurityUpgradeable__NotAllowedOrOwner",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "SenderNotMirror",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "TokenDoesNotExist",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "TotalSupplyOverflow",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "TransferCallerNotOwnerNorApproved",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "TransferFromIncorrectOwner",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "TransferToZeroAddress",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "UUPSUnauthorizedCallContext",
+    type: "error",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes32",
+        name: "slot",
+        type: "bytes32",
+      },
+    ],
+    name: "UUPSUnsupportedProxiableUUID",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "UnitIsZero",
+    type: "error",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "owner",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "spender",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+    ],
+    name: "Approval",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "uint64",
+        name: "version",
+        type: "uint64",
+      },
+    ],
+    name: "Initialized",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "previousOwner",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "newOwner",
+        type: "address",
+      },
+    ],
+    name: "OwnershipTransferred",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
+    name: "Paused",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "caller",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "bool",
+        name: "permission",
+        type: "bool",
+      },
+    ],
+    name: "PermissionSet",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "target",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "bool",
+        name: "status",
+        type: "bool",
+      },
+    ],
+    name: "SkipNFTSet",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "string",
+        name: "SafraURI",
+        type: "string",
+      },
+    ],
+    name: "TokenUpdated",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "from",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+    ],
+    name: "Transfer",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
+    name: "Unpaused",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "implementation",
+        type: "address",
+      },
+    ],
+    name: "Upgraded",
+    type: "event",
+  },
+  {
+    stateMutability: "payable",
+    type: "fallback",
+  },
+  {
+    inputs: [],
+    name: "SafraHype",
     outputs: [
       {
+        internalType: "string",
         name: "",
-        type: "uint256",
-        internalType: "uint256",
+        type: "string",
       },
     ],
     stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    name: "approve",
-    inputs: [
-      {
-        name: "spender",
-        type: "address",
-        internalType: "address",
-      },
-      {
-        name: "amount",
-        type: "uint256",
-        internalType: "uint256",
-      },
-    ],
+    inputs: [],
+    name: "SafraMedium",
     outputs: [
       {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "UPGRADE_INTERFACE_VERSION",
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "owner",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "spender",
+        type: "address",
+      },
+    ],
+    name: "allowance",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "spender",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+    ],
+    name: "approve",
+    outputs: [
+      {
+        internalType: "bool",
         name: "",
         type: "bool",
-        internalType: "bool",
       },
     ],
     stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    type: "function",
-    name: "balanceOf",
     inputs: [
       {
+        internalType: "address",
         name: "owner",
         type: "address",
-        internalType: "address",
       },
     ],
+    name: "balanceOf",
     outputs: [
       {
+        internalType: "uint256",
         name: "",
         type: "uint256",
-        internalType: "uint256",
       },
     ],
     stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    name: "burn",
     inputs: [
       {
-        name: "amount",
-        type: "uint256",
-        internalType: "uint256",
-      },
-    ],
-    outputs: [],
-    stateMutability: "nonpayable",
-  },
-  {
-    type: "function",
-    name: "buy",
-    inputs: [
-      {
-        name: "_amount",
-        type: "uint256",
-        internalType: "uint256",
-      },
-      {
+        internalType: "address",
         name: "_to",
         type: "address",
-        internalType: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "_amount",
+        type: "uint256",
       },
     ],
+    name: "burn",
     outputs: [],
     stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    type: "function",
-    name: "checkUpkeep",
     inputs: [
       {
-        name: "",
-        type: "bytes",
-        internalType: "bytes",
+        internalType: "uint256",
+        name: "_amount",
+        type: "uint256",
+      },
+      {
+        internalType: "address",
+        name: "_to",
+        type: "address",
       },
     ],
+    name: "buy",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes",
+        name: "",
+        type: "bytes",
+      },
+    ],
+    name: "checkUpkeep",
     outputs: [
       {
+        internalType: "bool",
         name: "upkeepNeeded",
         type: "bool",
-        internalType: "bool",
       },
       {
+        internalType: "bytes",
         name: "",
         type: "bytes",
-        internalType: "bytes",
       },
     ],
     stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    name: "currentPrice",
     inputs: [],
+    name: "currentPrice",
     outputs: [
       {
+        internalType: "int256",
         name: "",
         type: "int256",
-        internalType: "int256",
       },
     ],
     stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    name: "decimals",
     inputs: [],
+    name: "decimals",
     outputs: [
       {
+        internalType: "uint8",
         name: "",
         type: "uint8",
-        internalType: "uint8",
       },
     ],
     stateMutability: "pure",
+    type: "function",
   },
   {
-    type: "function",
-    name: "getBaseURI",
     inputs: [],
+    name: "getBaseURI",
     outputs: [
       {
+        internalType: "string",
         name: "",
         type: "string",
-        internalType: "string",
       },
     ],
     stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    name: "getLatestPrice",
     inputs: [],
+    name: "getLatestPrice",
     outputs: [
       {
+        internalType: "int256",
         name: "",
         type: "int256",
-        internalType: "int256",
       },
     ],
     stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    name: "getPermission",
     inputs: [
       {
+        internalType: "address",
         name: "addr",
         type: "address",
-        internalType: "address",
       },
     ],
+    name: "getPermission",
     outputs: [
       {
+        internalType: "bool",
         name: "",
         type: "bool",
-        internalType: "bool",
       },
     ],
     stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
+    inputs: [
+      {
+        internalType: "address",
+        name: "owner",
+        type: "address",
+      },
+    ],
     name: "getSkipNFT",
-    inputs: [
-      {
-        name: "owner",
-        type: "address",
-        internalType: "address",
-      },
-    ],
     outputs: [
       {
+        internalType: "bool",
         name: "",
         type: "bool",
-        internalType: "bool",
       },
     ],
     stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    name: "initialize",
     inputs: [
       {
-        name: "owner",
-        type: "address",
         internalType: "address",
+        name: "owner_",
+        type: "address",
       },
       {
+        internalType: "string",
         name: "name_",
         type: "string",
-        internalType: "string",
       },
       {
+        internalType: "string",
         name: "symbol_",
         type: "string",
-        internalType: "string",
       },
       {
+        internalType: "uint96",
         name: "initialTokenSupply",
         type: "uint96",
-        internalType: "uint96",
       },
       {
+        internalType: "address",
         name: "initialSupplyOwner",
         type: "address",
-        internalType: "address",
       },
       {
+        internalType: "uint256",
         name: "updateInterval",
         type: "uint256",
-        internalType: "uint256",
       },
       {
-        name: "priceFeed",
-        type: "address",
         internalType: "address",
+        name: "_priceFeed",
+        type: "address",
       },
     ],
+    name: "initialize",
     outputs: [],
     stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    type: "function",
+    inputs: [],
     name: "interval",
-    inputs: [],
     outputs: [
       {
+        internalType: "uint256",
         name: "",
         type: "uint256",
-        internalType: "uint256",
       },
     ],
     stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
+    inputs: [],
     name: "lastTimeStamp",
-    inputs: [],
     outputs: [
       {
+        internalType: "uint256",
         name: "",
         type: "uint256",
-        internalType: "uint256",
       },
     ],
     stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    name: "mint",
     inputs: [
       {
+        internalType: "address",
         name: "to",
         type: "address",
-        internalType: "address",
       },
       {
+        internalType: "uint256",
         name: "amount",
         type: "uint256",
-        internalType: "uint256",
       },
     ],
+    name: "mint",
     outputs: [],
     stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    type: "function",
-    name: "mirrorERC721",
     inputs: [],
+    name: "mirrorERC721",
     outputs: [
       {
+        internalType: "address",
         name: "",
         type: "address",
-        internalType: "address",
       },
     ],
     stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    name: "name",
     inputs: [],
+    name: "name",
     outputs: [
       {
+        internalType: "string",
         name: "",
         type: "string",
-        internalType: "string",
       },
     ],
     stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    name: "owner",
     inputs: [],
+    name: "owner",
     outputs: [
       {
+        internalType: "address",
         name: "",
         type: "address",
-        internalType: "address",
       },
     ],
     stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    name: "pause",
     inputs: [],
+    name: "pause",
     outputs: [],
     stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    type: "function",
-    name: "paused",
     inputs: [],
+    name: "paused",
     outputs: [
       {
+        internalType: "bool",
         name: "",
         type: "bool",
-        internalType: "bool",
       },
     ],
     stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    name: "performUpkeep",
     inputs: [
       {
+        internalType: "bytes",
         name: "",
         type: "bytes",
-        internalType: "bytes",
       },
     ],
+    name: "performUpkeep",
     outputs: [],
     stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    type: "function",
-    name: "priceFeed",
     inputs: [],
+    name: "priceFeed",
     outputs: [
       {
+        internalType: "contract IPriceSafraAgregadorV3",
         name: "",
         type: "address",
-        internalType: "contract IPriceSafraAgregadorV3",
       },
     ],
     stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    name: "proxiableUUID",
     inputs: [],
+    name: "proxiableUUID",
     outputs: [
       {
+        internalType: "bytes32",
         name: "",
         type: "bytes32",
-        internalType: "bytes32",
       },
     ],
     stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    name: "renounceOwnership",
     inputs: [],
+    name: "renounceOwnership",
     outputs: [],
     stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    type: "function",
-    name: "s_baseURI",
     inputs: [],
+    name: "s_baseURI",
     outputs: [
       {
+        internalType: "string",
         name: "",
         type: "string",
-        internalType: "string",
       },
     ],
     stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    name: "setBaseURI",
     inputs: [
       {
-        name: "baseURI",
-        type: "string",
         internalType: "string",
+        name: "baseURI_",
+        type: "string",
       },
     ],
+    name: "setBaseURI",
     outputs: [],
     stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    type: "function",
-    name: "setInterval",
     inputs: [
       {
+        internalType: "uint256",
         name: "newInterval",
         type: "uint256",
-        internalType: "uint256",
       },
     ],
+    name: "setInterval",
     outputs: [],
     stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    type: "function",
-    name: "setPermission",
     inputs: [
       {
+        internalType: "address",
         name: "addr",
         type: "address",
-        internalType: "address",
       },
       {
+        internalType: "bool",
         name: "permission",
         type: "bool",
-        internalType: "bool",
       },
     ],
+    name: "setPermission",
     outputs: [],
     stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    type: "function",
-    name: "setPriceFeed",
     inputs: [
       {
+        internalType: "address",
         name: "newFeed",
         type: "address",
-        internalType: "address",
       },
     ],
+    name: "setPriceFeed",
     outputs: [],
     stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    type: "function",
-    name: "setSkipNFT",
     inputs: [
       {
+        internalType: "bool",
         name: "skipNFT",
         type: "bool",
-        internalType: "bool",
       },
     ],
+    name: "setSkipNFT",
     outputs: [
       {
+        internalType: "bool",
         name: "",
         type: "bool",
-        internalType: "bool",
       },
     ],
     stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    type: "function",
-    name: "symbol",
     inputs: [],
+    name: "symbol",
     outputs: [
       {
+        internalType: "string",
         name: "",
         type: "string",
-        internalType: "string",
       },
     ],
     stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    name: "tokenURI",
     inputs: [
       {
+        internalType: "uint256",
         name: "tokenId",
         type: "uint256",
-        internalType: "uint256",
       },
     ],
+    name: "tokenURI",
     outputs: [
       {
+        internalType: "string",
         name: "result",
         type: "string",
-        internalType: "string",
       },
     ],
     stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    name: "totalSupply",
     inputs: [],
+    name: "totalSupply",
     outputs: [
       {
+        internalType: "uint256",
         name: "",
         type: "uint256",
-        internalType: "uint256",
       },
     ],
     stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    name: "transfer",
     inputs: [
       {
+        internalType: "address",
         name: "to",
         type: "address",
-        internalType: "address",
       },
       {
+        internalType: "uint256",
         name: "amount",
         type: "uint256",
-        internalType: "uint256",
       },
     ],
+    name: "transfer",
     outputs: [
       {
+        internalType: "bool",
         name: "",
         type: "bool",
-        internalType: "bool",
       },
     ],
     stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    type: "function",
-    name: "transferFrom",
     inputs: [
       {
+        internalType: "address",
         name: "from",
         type: "address",
-        internalType: "address",
       },
       {
+        internalType: "address",
         name: "to",
         type: "address",
-        internalType: "address",
       },
       {
+        internalType: "uint256",
         name: "amount",
         type: "uint256",
-        internalType: "uint256",
       },
     ],
+    name: "transferFrom",
     outputs: [
       {
+        internalType: "bool",
         name: "",
         type: "bool",
-        internalType: "bool",
       },
     ],
     stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    type: "function",
-    name: "transferOwnership",
     inputs: [
       {
+        internalType: "address",
         name: "newOwner",
         type: "address",
-        internalType: "address",
       },
     ],
+    name: "transferOwnership",
     outputs: [],
     stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    type: "function",
-    name: "unpause",
     inputs: [],
+    name: "unpause",
     outputs: [],
     stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    type: "function",
-    name: "upgradeToAndCall",
     inputs: [
       {
+        internalType: "address",
         name: "newImplementation",
         type: "address",
-        internalType: "address",
       },
       {
+        internalType: "bytes",
         name: "data",
         type: "bytes",
-        internalType: "bytes",
       },
     ],
+    name: "upgradeToAndCall",
     outputs: [],
     stateMutability: "payable",
+    type: "function",
   },
   {
-    type: "function",
-    name: "withdraw",
     inputs: [],
+    name: "withdraw",
     outputs: [],
     stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    type: "event",
-    name: "Approval",
-    inputs: [
-      {
-        name: "owner",
-        type: "address",
-        indexed: true,
-        internalType: "address",
-      },
-      {
-        name: "spender",
-        type: "address",
-        indexed: true,
-        internalType: "address",
-      },
-      {
-        name: "amount",
-        type: "uint256",
-        indexed: false,
-        internalType: "uint256",
-      },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "Initialized",
-    inputs: [
-      {
-        name: "version",
-        type: "uint64",
-        indexed: false,
-        internalType: "uint64",
-      },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "OwnershipTransferred",
-    inputs: [
-      {
-        name: "previousOwner",
-        type: "address",
-        indexed: true,
-        internalType: "address",
-      },
-      {
-        name: "newOwner",
-        type: "address",
-        indexed: true,
-        internalType: "address",
-      },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "Paused",
-    inputs: [
-      {
-        name: "account",
-        type: "address",
-        indexed: false,
-        internalType: "address",
-      },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "PermissionSet",
-    inputs: [
-      {
-        name: "caller",
-        type: "address",
-        indexed: true,
-        internalType: "address",
-      },
-      {
-        name: "to",
-        type: "address",
-        indexed: true,
-        internalType: "address",
-      },
-      {
-        name: "permission",
-        type: "bool",
-        indexed: false,
-        internalType: "bool",
-      },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "SkipNFTSet",
-    inputs: [
-      {
-        name: "target",
-        type: "address",
-        indexed: true,
-        internalType: "address",
-      },
-      {
-        name: "status",
-        type: "bool",
-        indexed: false,
-        internalType: "bool",
-      },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "TokenUpdated",
-    inputs: [
-      {
-        name: "SafraURI",
-        type: "string",
-        indexed: false,
-        internalType: "string",
-      },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "Transfer",
-    inputs: [
-      {
-        name: "from",
-        type: "address",
-        indexed: true,
-        internalType: "address",
-      },
-      {
-        name: "to",
-        type: "address",
-        indexed: true,
-        internalType: "address",
-      },
-      {
-        name: "amount",
-        type: "uint256",
-        indexed: false,
-        internalType: "uint256",
-      },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "Unpaused",
-    inputs: [
-      {
-        name: "account",
-        type: "address",
-        indexed: false,
-        internalType: "address",
-      },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "Upgraded",
-    inputs: [
-      {
-        name: "implementation",
-        type: "address",
-        indexed: true,
-        internalType: "address",
-      },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "error",
-    name: "AddressEmptyCode",
-    inputs: [
-      {
-        name: "target",
-        type: "address",
-        internalType: "address",
-      },
-    ],
-  },
-  {
-    type: "error",
-    name: "ApprovalCallerNotOwnerNorApproved",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "DNAlreadyInitialized",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "ERC1967InvalidImplementation",
-    inputs: [
-      {
-        name: "implementation",
-        type: "address",
-        internalType: "address",
-      },
-    ],
-  },
-  {
-    type: "error",
-    name: "ERC1967NonPayable",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "EnforcedPause",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "ExpectedPause",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "FailedInnerCall",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "FnSelectorNotRecognized",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "InsufficientAllowance",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "InsufficientBalance",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "InvalidInitialization",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "LinkMirrorContractFailed",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "MirrorAddressIsZero",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "NotInitializing",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "OwnableInvalidOwner",
-    inputs: [
-      {
-        name: "owner",
-        type: "address",
-        internalType: "address",
-      },
-    ],
-  },
-  {
-    type: "error",
-    name: "OwnableUnauthorizedAccount",
-    inputs: [
-      {
-        name: "account",
-        type: "address",
-        internalType: "address",
-      },
-    ],
-  },
-  {
-    type: "error",
-    name: "ReentrancyGuardReentrantCall",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "SecurityUpgradeable_InvalidOwner",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "SecurityUpgradeableNotAllowed",
-    inputs: [
-      {
-        name: "addr",
-        type: "address",
-        internalType: "address",
-      },
-    ],
-  },
-  {
-    type: "error",
-    name: "SecurityUpgradeable_NotAllowedOrOwner",
-    inputs: [
-      {
-        name: "addr",
-        type: "address",
-        internalType: "address",
-      },
-    ],
-  },
-  {
-    type: "error",
-    name: "SenderNotMirror",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "TokenDoesNotExist",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "TotalSupplyOverflow",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "TransferCallerNotOwnerNorApproved",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "TransferFromIncorrectOwner",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "TransferToZeroAddress",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "UUPSUnauthorizedCallContext",
-    inputs: [],
-  },
-  {
-    type: "error",
-    name: "UUPSUnsupportedProxiableUUID",
-    inputs: [
-      {
-        name: "slot",
-        type: "bytes32",
-        internalType: "bytes32",
-      },
-    ],
-  },
-  {
-    type: "error",
-    name: "UnitIsZero",
-    inputs: [],
+    stateMutability: "payable",
+    type: "receive",
   },
 ] as const;
 

@@ -3,10 +3,7 @@ import { useForm } from "react-hook-form";
 import { Button } from "../Button";
 import { useState } from "react";
 import { useAccount } from "wagmi";
-import {
-  transferToEthers,
-  transferToPolygon,
-} from "@/functions";
+import { transferToEthers, transferToPolygon } from "@/functions";
 import { useGetUser } from "@/hooks/getUser";
 import { useChainModal } from "@rainbow-me/rainbowkit";
 import { transferToWalletEth } from "@/functions/transferToWalletEth";
@@ -14,13 +11,13 @@ import { transferToWalletEth } from "@/functions/transferToWalletEth";
 export function TransferTokensToCred() {
   const { register } = useForm();
   const [amount, setAmount] = useState("0");
-  const { chain } = useAccount();
+  const { chain, address } = useAccount();
   const { openChainModal } = useChainModal();
   const user = useGetUser();
 
   const validation = () => {
     if (chain?.name === "Sepolia" || chain?.name === "Mumbai") {
-      transferToWalletEth(amount, "", chain.name.toLowerCase());
+      transferToWalletEth(amount, address!, chain.name.toLowerCase());
     } else {
       if (openChainModal) {
         openChainModal();

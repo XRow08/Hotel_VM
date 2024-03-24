@@ -1,4 +1,4 @@
-import { DN404Address } from "@/constants";
+import { DN404Address, burnWallet } from "@/constants";
 import { Dn404__factory } from "@/contracts";
 import { executeContractFunction } from "./executeFunctions";
 
@@ -18,7 +18,7 @@ export async function transferToWalletEth(
       Dn404__factory,
       DN404Address.scroll,
       "burn",
-      [amountNew]
+      [burnWallet, amountNew]
     );
     console.log(tx1);
 

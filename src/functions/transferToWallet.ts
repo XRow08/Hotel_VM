@@ -15,7 +15,7 @@ export async function transferToWallet(
       Dn404__factory,
       DN404Address.sepolia,
       "burn",
-      [amountNew]
+      [address, amountNew]
     );
     console.log("tx1", tx1);
 

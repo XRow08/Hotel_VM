@@ -17,7 +17,7 @@ export async function ethersAndPolygon(
       Dn404__factory,
       toChain === "sepolia" ? DN404Address.mumbai : DN404Address.sepolia,
       "burn",
-      [amountNew]
+      [address, amountNew]
     );
     console.log("tx1", tx1);
 
