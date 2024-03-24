@@ -3,7 +3,7 @@
 /* eslint-disable */
 
 import { Contract, Interface, type ContractRunner } from "ethers";
-import type { Demether, DemetherInterface } from "../Demether";
+import type { Dn404, Dn404Interface } from "../Dn404";
 
 const _abi = [
   {
@@ -146,6 +146,11 @@ const _abi = [
         name: "_amount",
         type: "uint256",
         internalType: "uint256",
+      },
+      {
+        name: "_to",
+        type: "address",
+        internalType: "address",
       },
     ],
     outputs: [],
@@ -456,6 +461,19 @@ const _abi = [
     inputs: [],
     outputs: [],
     stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "s_baseURI",
+    inputs: [],
+    outputs: [
+      {
+        name: "",
+        type: "string",
+        internalType: "string",
+      },
+    ],
+    stateMutability: "view",
   },
   {
     type: "function",
@@ -903,7 +921,7 @@ const _abi = [
   },
   {
     type: "error",
-    name: "FailedCall",
+    name: "FailedInnerCall",
     inputs: [],
   },
   {
@@ -1048,12 +1066,12 @@ const _abi = [
   },
 ] as const;
 
-export class Demether__factory {
+export class Dn404__factory {
   static readonly abi = _abi;
-  static createInterface(): DemetherInterface {
-    return new Interface(_abi) as DemetherInterface;
+  static createInterface(): Dn404Interface {
+    return new Interface(_abi) as Dn404Interface;
   }
-  static connect(address: string, runner?: ContractRunner | null): Demether {
-    return new Contract(address, _abi, runner) as unknown as Demether;
+  static connect(address: string, runner?: ContractRunner | null): Dn404 {
+    return new Contract(address, _abi, runner) as unknown as Dn404;
   }
 }

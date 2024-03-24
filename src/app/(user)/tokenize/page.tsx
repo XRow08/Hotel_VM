@@ -65,7 +65,7 @@ export default async function Tokenize() {
           <LoteCard level={2} loteName="Lote 04" />
         </div>
       </div>
-      <button className="w-full rounded-lg h-[65px] font-semibold text-lg text-[#0B3534] bg-green-primary">
+      <button disabled className="w-full rounded-lg h-[65px] font-semibold text-lg text-[#0B3534] bg-green-primary">
         Crédito disponível: $100.000,00
       </button>
       <div className="py-20 mb-10 gap-40 flex justify-between border-b-4 border-white border-opacity-10">

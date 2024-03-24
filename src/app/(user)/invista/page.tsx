@@ -26,7 +26,7 @@ export default async function Invista() {
 
       <div className="w-[80%] flex flex-col mt-10 gap-4">
         <div className="flex gap-10 w-full justify-between">
-          <div className="bg-white flex items-center cursor-pointer justify-center bg-opacity-10 backdrop-blur-md w-full px-6 p-4 rounded-lg border border-white border-opacity-50 text-white text-opacity-50">
+          <div className="bg-white flex items-center justify-center bg-opacity-10 backdrop-blur-md w-full px-6 p-4 rounded-lg border border-white border-opacity-50 text-white text-opacity-50">
             Milho
           </div>
           <div className="bg-white flex items-center opacity-50 justify-center bg-opacity-10 backdrop-blur-md w-full px-6 p-4 rounded-lg border border-white border-opacity-50 text-white text-opacity-50">
@@ -44,7 +44,7 @@ export default async function Invista() {
       </div>
       <div className="w-[80%] flex justify-between mt-16 gap-10">
         <div className="w-full">
-          <div className="bg-white cursor-pointer flex items-center justify-center bg-opacity-10 backdrop-blur-md w-full px-6 p-4 rounded-lg border border-white border-opacity-50 text-white text-opacity-50">
+          <div className="bg-white flex items-center justify-center bg-opacity-10 backdrop-blur-md w-full px-6 p-4 rounded-lg border border-white border-opacity-50 text-white text-opacity-50">
             Aurora
           </div>
           <p className="opacity-50 text-center mt-4">
@@ -53,7 +53,7 @@ export default async function Invista() {
           </p>
         </div>
         <div className="w-full">
-          <div className="bg-white cursor-pointer flex items-center justify-center bg-opacity-10 backdrop-blur-md w-full px-6 p-4 rounded-lg border border-white border-opacity-50 text-white text-opacity-50">
+          <div className="bg-white flex items-center justify-center bg-opacity-10 backdrop-blur-md w-full px-6 p-4 rounded-lg border border-white border-opacity-50 text-white text-opacity-50">
             Scroll
           </div>
           <p className="opacity-50 text-center mt-4">

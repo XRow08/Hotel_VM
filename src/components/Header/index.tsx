@@ -12,7 +12,7 @@ export function Header() {
   const pathname = usePathname();
   const user = useGetUser();
   const { address } = useAccount();
-  const { data, error, status } = useEnsName({ address });
+  const { data, status } = useEnsName({ address });
 
   const getAbbreviatedWalletAddress = (address: string) => {
     return `${address?.slice(0, 4)}...${address?.slice(-4)}`;

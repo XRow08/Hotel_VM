@@ -1,25 +1,32 @@
-"use server";
-import { apiLumx } from "@/app/actions";
-import type { LoggedInUser } from "@lumx-protocol/embedded-wallet";
+import { DN404Address } from "@/constants";
+import { Dn404__factory } from "@/contracts";
+import { executeContractFunction } from "./executeFunctions";
 
-export async function onTransferToWallet(
+export async function transferToWallet(
   amount: string | number,
-  address: string,
-  user: LoggedInUser
+  address: string
 ) {
   try {
-    const payload = {
-      walletId: user.walletId,
-      contractId: "3c90c3cc-0d44-4b50-8888-8dd25736052a",
-      operations: [
-        {
-          functionSignature: "buy",
-          functionParams: [amount, address],
-        },
-      ],
-    };
-    console.log(payload);
-    await apiLumx(payload);
+    const amountNew = BigInt(Number(amount) * 10 ** 18);
+    const sepoliaRPC = process.env.NEXT_PUBLIC_SEPOLIA_RPC_URL!;
+
+    const tx1 = await executeContractFunction(
+      sepoliaRPC,
+      Dn404__factory,
+      DN404Address.sepolia,
+      "burn",
+      [amountNew]
+    );
+    console.log("tx1", tx1);
+
+    const tx2 = await executeContractFunction(
+      sepoliaRPC,
+      Dn404__factory,
+      DN404Address.sepolia,
+      "mint",
+      [address, amountNew]
+    );
+    console.log("tx2", tx2);
   } catch (error) {
     console.log(error);
   }

@@ -23,7 +23,7 @@ import type {
   TypedContractMethod,
 } from "./common";
 
-export interface DemetherInterface extends Interface {
+export interface Dn404Interface extends Interface {
   getFunction(
     nameOrSignature:
       | "SafraHype"
@@ -54,6 +54,7 @@ export interface DemetherInterface extends Interface {
       | "priceFeed"
       | "proxiableUUID"
       | "renounceOwnership"
+      | "s_baseURI"
       | "setBaseURI"
       | "setInterval"
       | "setPermission"
@@ -106,7 +107,10 @@ export interface DemetherInterface extends Interface {
     values: [AddressLike]
   ): string;
   encodeFunctionData(functionFragment: "burn", values: [BigNumberish]): string;
-  encodeFunctionData(functionFragment: "buy", values: [BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "buy",
+    values: [BigNumberish, AddressLike]
+  ): string;
   encodeFunctionData(
     functionFragment: "checkUpkeep",
     values: [BytesLike]
@@ -174,6 +178,7 @@ export interface DemetherInterface extends Interface {
     functionFragment: "renounceOwnership",
     values?: undefined
   ): string;
+  encodeFunctionData(functionFragment: "s_baseURI", values?: undefined): string;
   encodeFunctionData(functionFragment: "setBaseURI", values: [string]): string;
   encodeFunctionData(
     functionFragment: "setInterval",
@@ -277,6 +282,7 @@ export interface DemetherInterface extends Interface {
     functionFragment: "renounceOwnership",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(functionFragment: "s_baseURI", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "setBaseURI", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "setInterval",
@@ -454,11 +460,11 @@ export namespace UpgradedEvent {
   export type LogDescription = TypedLogDescription<Event>;
 }
 
-export interface Demether extends BaseContract {
-  connect(runner?: ContractRunner | null): Demether;
+export interface Dn404 extends BaseContract {
+  connect(runner?: ContractRunner | null): Dn404;
   waitForDeployment(): Promise<this>;
 
-  interface: DemetherInterface;
+  interface: Dn404Interface;
 
   queryFilter<TCEvent extends TypedContractEvent>(
     event: TCEvent,
@@ -519,7 +525,11 @@ export interface Demether extends BaseContract {
 
   burn: TypedContractMethod<[amount: BigNumberish], [void], "nonpayable">;
 
-  buy: TypedContractMethod<[_amount: BigNumberish], [void], "nonpayable">;
+  buy: TypedContractMethod<
+    [_amount: BigNumberish, _to: AddressLike],
+    [void],
+    "nonpayable"
+  >;
 
   checkUpkeep: TypedContractMethod<
     [arg0: BytesLike],
@@ -580,6 +590,8 @@ export interface Demether extends BaseContract {
   proxiableUUID: TypedContractMethod<[], [string], "view">;
 
   renounceOwnership: TypedContractMethod<[], [void], "nonpayable">;
+
+  s_baseURI: TypedContractMethod<[], [string], "view">;
 
   setBaseURI: TypedContractMethod<[baseURI: string], [void], "nonpayable">;
 
@@ -672,7 +684,11 @@ export interface Demether extends BaseContract {
   ): TypedContractMethod<[amount: BigNumberish], [void], "nonpayable">;
   getFunction(
     nameOrSignature: "buy"
-  ): TypedContractMethod<[_amount: BigNumberish], [void], "nonpayable">;
+  ): TypedContractMethod<
+    [_amount: BigNumberish, _to: AddressLike],
+    [void],
+    "nonpayable"
+  >;
   getFunction(
     nameOrSignature: "checkUpkeep"
   ): TypedContractMethod<
@@ -753,6 +769,9 @@ export interface Demether extends BaseContract {
   getFunction(
     nameOrSignature: "renounceOwnership"
   ): TypedContractMethod<[], [void], "nonpayable">;
+  getFunction(
+    nameOrSignature: "s_baseURI"
+  ): TypedContractMethod<[], [string], "view">;
   getFunction(
     nameOrSignature: "setBaseURI"
   ): TypedContractMethod<[baseURI: string], [void], "nonpayable">;

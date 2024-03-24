@@ -1,33 +1,31 @@
 "use client";
 import { useForm } from "react-hook-form";
 import { Button } from "../Button";
-import { apiLumx } from "@/app/actions";
-import { useGetUser } from "@/hooks/getUser";
+import { DN404Address } from "@/constants";
+import { Dn404__factory } from "@/contracts";
+import { executeContractFunction } from "@/functions/executeFunctions";
 
 export function InvistaForm() {
   const { register, handleSubmit } = useForm();
-  const user = useGetUser();
   const style =
     "bg-white bg-opacity-10 backdrop-blur-md h-[65px] flex items-center justify-start opacity-50 w-full px-6 p-4 rounded-lg border border-white border-opacity-50";
 
-  async function onPolygon(values: any) {
-    const payload = {
-      walletId: user.walletId,
-      contractId: "3c90c3cc-0d44-4b50-8888-8dd25736052a",
-      operations: [
-        {
-          functionSignature: "burn",
-          functionParams: [values.amount],
-        },
-      ],
-    };
-    console.log(payload);
-    await apiLumx(payload);
+  async function getSupply() {
+    const scrollRPC = process.env.NEXT_PUBLIC_SCROLL_RPC_URL!;
+
+    const tx1 = await executeContractFunction(
+      scrollRPC,
+      Dn404__factory,
+      DN404Address.scroll,
+      "totalSupply",
+      []
+    );
+    console.log("tx1", tx1);
   }
 
   return (
     <form
-      onSubmit={handleSubmit(onPolygon)}
+      onSubmit={handleSubmit(getSupply)}
       className="w-full flex justify-center items-center gap-6"
     >
       <div className="w-3/4 flex flex-col gap-10">
