@@ -8,8 +8,8 @@ export const managementAddress = {
 export const burnWallet = "0xfc4c418e132e0c8c5eb496a777563412e97fe1a3";
 
 export const DN404Address = {
-  scroll: "0xCAc0002295ccE2857f9b7c5eEd626bf8df9100b1",
-  sepolia: "0xCAc0002295ccE2857f9b7c5eEd626bf8df9100b1",
-  mumbai: "0x83CE145C519c4168b7044e351385Bb472c9B6284",
+  scroll: "0xAE8569130856dC2c7b6fec52e4c473880A617b40",
+  sepolia: "0x46Bdb8f2de8152b1e74953504c4316AC9C1A3957",
+  mumbai: "0x5E78dBa3A105015eD8a70D4E7Ef46385dc1bD000",
   aurora: "",
 };
