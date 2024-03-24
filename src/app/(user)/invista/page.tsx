@@ -1,11 +1,12 @@
 import { AgroCard } from "@/components/AgroCard";
 import { InvistaForm } from "@/components/Forms/Invista";
+import { TransferExternalWallet } from "@/components/Forms/TransferExternalWallet";
 import { TransferTokensTwo } from "@/components/Forms/TransferTokensTwo";
 import Image from "next/image";
 
 export default async function Invista() {
   return (
-    <div className="min-h-screen bg-tokenize bg-center bg-no-repeat py-40 flex flex-col items-center justify-start px-60 text-white">
+    <div className="min-h-screen bg-tokenize bg-center py-40 flex flex-col items-center justify-start px-60 text-white">
       <div className="w-[700px] flex flex-col items-center justify-center text-center gap-6">
         <h1 className="flex items-center gap-2 text-2xl font-semibold">
           <Image
@@ -107,6 +108,12 @@ export default async function Invista() {
           investimentos de forma profissional.
         </h1>
         <TransferTokensTwo />
+      </div>
+      <div className="w-full flex items-center justify-center border-b-4 border-white border-opacity-10 pb-20">
+        <div className="w-1/2 h-[470px] bg-[#98C73B] bg-opacity-5 rounded-lg border border-opacity-50 mt-20 p-10">
+          <h1 className="font-semibold text-2xl text-center mb-10">Transfira seus tokens</h1>
+          <TransferExternalWallet />
+        </div>
       </div>
     </div>
   );

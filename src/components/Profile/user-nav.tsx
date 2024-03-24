@@ -11,9 +11,10 @@ import { ArrowUpRight } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { createLink } from "@/helpers";
-import { LoggedInUser } from "@lumx-protocol/embedded-wallet";
+import type { LoggedInUser } from "@lumx-protocol/embedded-wallet";
 import { useAccount, useConnect } from "wagmi";
 import { injected } from "wagmi/connectors";
+import { useRouter } from "next/navigation";
 
 export const UserNav = ({
   name,
@@ -24,6 +25,7 @@ export const UserNav = ({
 }) => {
   const { connect } = useConnect();
   const { address } = useAccount();
+  const { push } = useRouter();
 
   const getInitialLetters = (name: string) => {
     return name
@@ -64,10 +66,7 @@ export const UserNav = ({
             <DropdownMenuSeparator />
             <DropdownMenuItem
               className="cursor-pointer"
-              onClick={() => {
-                connect({ connector: injected() });
-                window.location.reload();
-              }}
+              onClick={() => connect({ connector: injected() })}
             >
               Entrar com metamask
             </DropdownMenuItem>
@@ -78,8 +77,8 @@ export const UserNav = ({
           className="cursor-pointer"
           onClick={() => {
             localStorage.clear();
-            window.location.reload();
             document.cookie = `walletId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+            push("/");
           }}
         >
           Sair
