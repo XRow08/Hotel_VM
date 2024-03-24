@@ -25,6 +25,7 @@ export async function transferToEthers(amount: string, address: string) {
       [address, amountNew]
     );
     console.log("tx2", tx2);
+    return tx2
   } catch (error) {
     console.log(error);
   }

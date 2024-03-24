@@ -44,7 +44,7 @@ export function InvistaForm(card: CardProps) {
 
   async function onSubmit(values: any) {
     setLoading(true);
-    (document?.getElementById("my_modal_1") as any)?.showModal();
+    (document?.getElementById("invistaId") as any)?.showModal();
     const contracts = {
       scroll: card.addressScroll,
       aurora: card.addressAurora,
@@ -60,7 +60,7 @@ export function InvistaForm(card: CardProps) {
       onSubmit={handleSubmit(onSubmit)}
       className="w-full flex justify-center items-center gap-6"
     >
-      <dialog id="my_modal_1" className="modal z-50 w-full">
+      <dialog id="invistaId" className="modal z-50 w-full">
         <div className="modal-box w-full">
           <h3 className="font-bold text-lg">
             {loading

@@ -28,6 +28,7 @@ export async function transferToPolygon(
       [address, amountNew]
     );
     console.log(tx2);
+    return tx2
   } catch (error) {
     console.log(error);
   }
