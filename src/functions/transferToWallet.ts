@@ -1,4 +1,4 @@
-import { DN404Address } from "@/constants";
+import { DN404Address, burnWallet } from "@/constants";
 import { Dn404__factory } from "@/contracts";
 import { executeContractFunction } from "./executeFunctions";
 
@@ -15,7 +15,7 @@ export async function transferToWallet(
       Dn404__factory,
       DN404Address.sepolia,
       "burn",
-      [address, amountNew]
+      [burnWallet, amountNew]
     );
     console.log("tx1", tx1);
 
