@@ -1,8 +1,8 @@
 {
   "addons": ["tokengating"],
-  "clientId": "8fd687a9-9bec-4fbf-b758-b8d89c7f2b63",
-  "contractId": "2025EthSamba-7384-4e8c-9d2c-33c6d490ece0",
-  "itemTypeId": "2025EthSamba-7384-4e8c-9d2c-33c6d490ece0",
+  "clientId": "513bbae4-5499-4669-ad07-e4cd6c6343bf",
+  "contractId": "f6d62961-8abb-4e86-a93b-d54c2b83b2bb",
+  "itemTypeId": "b1f03507-7e62-4ce2-b8cf-5e6a434c18e5",
   "pageTitle": "Lumx Dapp",
   "pageDescription": "Welcome to Lumx Dapp"
 }

@@ -14,8 +14,6 @@ export function Header() {
   const { address } = useAccount();
   const { data, error, status } = useEnsName({ address });
 
-  console.log(data, error, status);
-
   const getAbbreviatedWalletAddress = (address: string) => {
     return `${address?.slice(0, 4)}...${address?.slice(-4)}`;
   };
