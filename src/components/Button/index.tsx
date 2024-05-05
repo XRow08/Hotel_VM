@@ -2,7 +2,7 @@ import classNames from "classnames";
 
 type Props = {
   children: React.ReactNode;
-  bgColor: "purple" | "white" | "blue";
+  bgColor: "purple" | "white" | "blue" | "black";
   active?: boolean;
   className?: string;
   type?: "submit" | "reset" | "button";
@@ -28,6 +28,7 @@ export function Button({
         { "bg-white text-black": bgColor === "white" },
         { "bg-purple text-white": bgColor === "purple" },
         { "bg-blue text-black": bgColor === "blue" },
+        { "bg-[#2A2D34] text-[#98A2B3]": bgColor === "black" },
         className
       )}
     >

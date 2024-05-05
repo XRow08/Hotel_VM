@@ -33,7 +33,7 @@ export default function Community() {
         <div className="space-y-2">
           <h1 className="font-medium text-sm">Where</h1>
           <h1 className="font-bold">Forcaster</h1>
-        </div>
+        </div> 
       </div>
 
       <div className="space-y-1">
