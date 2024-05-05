@@ -15,8 +15,8 @@ module.exports = {
         "footer-texture": "url('/img/footer-texture.png')",
       },
       colors: {
-        "green-primary": "#98C73B",
-        "green-secondary": "#0B3534",
+        "purple": "#8761CF",
+        "blue": "#21FFFF",
       },
     },
   },
