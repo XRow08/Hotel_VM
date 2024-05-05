@@ -10,7 +10,7 @@ export default function Community() {
   const { push } = useRouter();
 
   return (
-    <section className="bg-black min-h-screen flex flex-col gap-6 px-6 pt-20 text-white">
+    <section className="bg-black min-h-screen flex flex-col gap-6 px-6 py-20 text-white">
       <BackButton link="/community" />
       <div className="space-y-2">
         <h1 className="text-center text-blue">Ipê City community</h1>

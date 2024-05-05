@@ -36,12 +36,12 @@ export function Pulses() {
           <li className="flex items-center justify-between text-gray-300 text-start border-b py-4">
             <h1 className="w-1/2">New Feature App</h1>
             <h1 className="w-1/3">24/05/2024</h1>
-            <Button bgColor="white" className="w-1/4" children={"Start"} onClick={() => push("/execute")} />
+            <Button bgColor="white" className="w-1/5" children={"Start"} onClick={() => push("/execute")} />
           </li>
           <li className="flex items-center justify-between text-gray-300 text-start border-b py-4">
             <h1 className="w-1/2">New Feature App</h1>
             <h1 className="w-1/3">24/05/2024</h1>
-            <Button bgColor="white" className="w-1/4" children={"Start"} onClick={() => push("/execute")} />
+            <Button bgColor="white" className="w-1/5" children={"Start"} onClick={() => push("/execute")} />
           </li>
         </ul>
       ) : (

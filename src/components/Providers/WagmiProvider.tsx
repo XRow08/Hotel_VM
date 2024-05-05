@@ -5,6 +5,9 @@ import "@rainbow-me/rainbowkit/styles.css";
 import * as viemChains from "viem/chains";
 import { PropsWithChildren } from "react";
 import { WagmiProvider } from "wagmi";
+import "@farcaster/auth-kit/styles.css";
+import { AuthKitProvider } from "@farcaster/auth-kit";
+import { JsonRpcProvider } from "ethers";
 
 export default function WagmiProv({ children }: PropsWithChildren) {
   const config = getDefaultConfig({
@@ -14,15 +17,23 @@ export default function WagmiProv({ children }: PropsWithChildren) {
     ssr: true,
   });
 
+  const configFarcaster = {
+    rpcUrl: "https://spicy-rpc.chiliz.com/",
+    domain: "moonx-pulse.netlify.app",
+    siweUri: "https://moonx-pulse.netlify.app",
+  };
+
   const queryClient = new QueryClient();
 
   return (
     <WagmiProvider config={config}>
-      <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider coolMode showRecentTransactions={true}>
-          {children}
-        </RainbowKitProvider>
-      </QueryClientProvider>
+      <AuthKitProvider config={configFarcaster}>
+        <QueryClientProvider client={queryClient}>
+          <RainbowKitProvider coolMode showRecentTransactions={true}>
+            {children}
+          </RainbowKitProvider>
+        </QueryClientProvider>
+      </AuthKitProvider>
     </WagmiProvider>
   );
 }

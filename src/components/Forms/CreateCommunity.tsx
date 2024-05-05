@@ -32,12 +32,10 @@ export function CreateCommunity() {
         </div>
         <div className="flex flex-col items-start gap-2">
           <h1 className="text-sm font-medium">Frequency of the pulse</h1>
-          <input
-            {...register("amount", { required: true })}
-            placeholder="Period"
-            type="text"
-            className={style}
-          />
+          <select {...register("amount", { required: true })} className={style}>
+            <option value="Period">Period</option>
+            <option value="Days 02 and 16 of each month">Days 02 and 16 of each month</option>
+          </select>
         </div>
         <div className="flex flex-col items-start gap-2">
           <h1 className="text-sm font-medium">NFT Reward link</h1>

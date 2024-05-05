@@ -2,6 +2,7 @@
 import { Button } from "@/components/Button";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { SignInButton } from "@farcaster/auth-kit";
 
 export default function Home() {
   const { push } = useRouter();
@@ -25,7 +26,7 @@ export default function Home() {
         bgColor="white"
         onClick={() => push("community")}
       />
-      <Button children={"Log in with Farcaster"} bgColor="purple" />
+      <SignInButton />
       <p>
         Don't have an account?{" "}
         <span className="font-semibold cursor-pointer">Sign up</span>

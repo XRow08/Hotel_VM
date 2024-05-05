@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@farcaster/auth-kit": "^0.2.2",
     "@hookform/resolvers": "^3.3.4",
     "@lumx-protocol/embedded-wallet": "^0.0.19",
     "@radix-ui/react-avatar": "^1.0.4",
@@ -32,7 +33,7 @@
     "react-dom": "^18",
     "react-hook-form": "^7.51.1",
     "typechain": "^8.3.2",
-    "viem": "^2.8.18",
+    "viem": "^2.9.31",
     "wagmi": "^2.5.12"
   },
   "devDependencies": {
