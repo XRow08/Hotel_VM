@@ -43,7 +43,7 @@ export default function Community() {
         type="button"
         bgColor={"blue"}
         className="my-4"
-        onClick={() => push("/home")}
+        onClick={() => push("/new-pulse")}
       />
 
       <div className="flex flex-col items-start gap-4">

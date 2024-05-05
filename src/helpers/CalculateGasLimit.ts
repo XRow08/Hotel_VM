@@ -3,7 +3,7 @@ import { Contract, BigNumberish } from "ethers";
 const GASLIMIT_DEFAULT = "500000";
 
 export async function calculateGasLimit(
-  contract: Contract,
+  contract: Contract | any,
   functionName: string,
   params: any[]
 ): Promise<BigNumberish> {
