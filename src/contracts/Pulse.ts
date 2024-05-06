@@ -28,43 +28,33 @@ import type {
 
 export interface PulseInterface extends utils.Interface {
   functions: {
-    "activityCompleted()": FunctionFragment;
-    "completeActivity(address)": FunctionFragment;
-    "deadline()": FunctionFragment;
-    "eligibility(address)": FunctionFragment;
+    "completeActivity(address,bool)": FunctionFragment;
     "mintToken(address)": FunctionFragment;
-    "pulseToken()": FunctionFragment;
     "setDeadline(uint256,uint256)": FunctionFragment;
     "setEligibility(address,bool)": FunctionFragment;
+    "activityCompleted()": FunctionFragment;
+    "deadline()": FunctionFragment;
+    "eligibility(address)": FunctionFragment;
+    "pulseToken()": FunctionFragment;
   };
 
   getFunction(
     nameOrSignatureOrTopic:
-      | "activityCompleted"
       | "completeActivity"
-      | "deadline"
-      | "eligibility"
       | "mintToken"
-      | "pulseToken"
       | "setDeadline"
       | "setEligibility"
+      | "activityCompleted"
+      | "deadline"
+      | "eligibility"
+      | "pulseToken"
   ): FunctionFragment;
 
   encodeFunctionData(
-    functionFragment: "activityCompleted",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
     functionFragment: "completeActivity",
-    values: [string]
+    values: [string, boolean]
   ): string;
-  encodeFunctionData(functionFragment: "deadline", values?: undefined): string;
-  encodeFunctionData(functionFragment: "eligibility", values: [string]): string;
   encodeFunctionData(functionFragment: "mintToken", values: [string]): string;
-  encodeFunctionData(
-    functionFragment: "pulseToken",
-    values?: undefined
-  ): string;
   encodeFunctionData(
     functionFragment: "setDeadline",
     values: [BigNumberish, BigNumberish]
@@ -73,22 +63,22 @@ export interface PulseInterface extends utils.Interface {
     functionFragment: "setEligibility",
     values: [string, boolean]
   ): string;
-
-  decodeFunctionResult(
+  encodeFunctionData(
     functionFragment: "activityCompleted",
-    data: BytesLike
-  ): Result;
+    values?: undefined
+  ): string;
+  encodeFunctionData(functionFragment: "deadline", values?: undefined): string;
+  encodeFunctionData(functionFragment: "eligibility", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "pulseToken",
+    values?: undefined
+  ): string;
+
   decodeFunctionResult(
     functionFragment: "completeActivity",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "deadline", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "eligibility",
-    data: BytesLike
-  ): Result;
   decodeFunctionResult(functionFragment: "mintToken", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "pulseToken", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "setDeadline",
     data: BytesLike
@@ -97,6 +87,16 @@ export interface PulseInterface extends utils.Interface {
     functionFragment: "setEligibility",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(
+    functionFragment: "activityCompleted",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "deadline", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "eligibility",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "pulseToken", data: BytesLike): Result;
 
   events: {
     "ActivityCompleted(address)": EventFragment;
@@ -152,23 +152,16 @@ export interface Pulse extends BaseContract {
   removeListener: OnEvent<this>;
 
   functions: {
-    activityCompleted(overrides?: CallOverrides): Promise<[boolean]>;
-
     completeActivity(
       _address: string,
+      _status: boolean,
       overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
-
-    deadline(overrides?: CallOverrides): Promise<[BigNumber]>;
-
-    eligibility(arg0: string, overrides?: CallOverrides): Promise<[boolean]>;
 
     mintToken(
       _address: string,
       overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
-
-    pulseToken(overrides?: CallOverrides): Promise<[string]>;
 
     setDeadline(
       _newDeadlineOne: BigNumberish,
@@ -181,25 +174,26 @@ export interface Pulse extends BaseContract {
       _eligible: boolean,
       overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
-  };
 
-  activityCompleted(overrides?: CallOverrides): Promise<boolean>;
+    activityCompleted(overrides?: CallOverrides): Promise<[boolean]>;
+
+    deadline(overrides?: CallOverrides): Promise<[BigNumber]>;
+
+    eligibility(arg0: string, overrides?: CallOverrides): Promise<[boolean]>;
+
+    pulseToken(overrides?: CallOverrides): Promise<[string]>;
+  };
 
   completeActivity(
     _address: string,
+    _status: boolean,
     overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
-
-  deadline(overrides?: CallOverrides): Promise<BigNumber>;
-
-  eligibility(arg0: string, overrides?: CallOverrides): Promise<boolean>;
 
   mintToken(
     _address: string,
     overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
-
-  pulseToken(overrides?: CallOverrides): Promise<string>;
 
   setDeadline(
     _newDeadlineOne: BigNumberish,
@@ -213,21 +207,22 @@ export interface Pulse extends BaseContract {
     overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
-  callStatic: {
-    activityCompleted(overrides?: CallOverrides): Promise<boolean>;
+  activityCompleted(overrides?: CallOverrides): Promise<boolean>;
 
+  deadline(overrides?: CallOverrides): Promise<BigNumber>;
+
+  eligibility(arg0: string, overrides?: CallOverrides): Promise<boolean>;
+
+  pulseToken(overrides?: CallOverrides): Promise<string>;
+
+  callStatic: {
     completeActivity(
       _address: string,
+      _status: boolean,
       overrides?: CallOverrides
     ): Promise<void>;
 
-    deadline(overrides?: CallOverrides): Promise<BigNumber>;
-
-    eligibility(arg0: string, overrides?: CallOverrides): Promise<boolean>;
-
     mintToken(_address: string, overrides?: CallOverrides): Promise<void>;
-
-    pulseToken(overrides?: CallOverrides): Promise<string>;
 
     setDeadline(
       _newDeadlineOne: BigNumberish,
@@ -240,6 +235,14 @@ export interface Pulse extends BaseContract {
       _eligible: boolean,
       overrides?: CallOverrides
     ): Promise<void>;
+
+    activityCompleted(overrides?: CallOverrides): Promise<boolean>;
+
+    deadline(overrides?: CallOverrides): Promise<BigNumber>;
+
+    eligibility(arg0: string, overrides?: CallOverrides): Promise<boolean>;
+
+    pulseToken(overrides?: CallOverrides): Promise<string>;
   };
 
   filters: {
@@ -253,23 +256,16 @@ export interface Pulse extends BaseContract {
   };
 
   estimateGas: {
-    activityCompleted(overrides?: CallOverrides): Promise<BigNumber>;
-
     completeActivity(
       _address: string,
+      _status: boolean,
       overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
-
-    deadline(overrides?: CallOverrides): Promise<BigNumber>;
-
-    eligibility(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     mintToken(
       _address: string,
       overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
-
-    pulseToken(overrides?: CallOverrides): Promise<BigNumber>;
 
     setDeadline(
       _newDeadlineOne: BigNumberish,
@@ -282,15 +278,41 @@ export interface Pulse extends BaseContract {
       _eligible: boolean,
       overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
+
+    activityCompleted(overrides?: CallOverrides): Promise<BigNumber>;
+
+    deadline(overrides?: CallOverrides): Promise<BigNumber>;
+
+    eligibility(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
+
+    pulseToken(overrides?: CallOverrides): Promise<BigNumber>;
   };
 
   populateTransaction: {
-    activityCompleted(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
     completeActivity(
+      _address: string,
+      _status: boolean,
+      overrides?: Overrides & { from?: string }
+    ): Promise<PopulatedTransaction>;
+
+    mintToken(
       _address: string,
       overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
+
+    setDeadline(
+      _newDeadlineOne: BigNumberish,
+      _newDeadlineTwo: BigNumberish,
+      overrides?: Overrides & { from?: string }
+    ): Promise<PopulatedTransaction>;
+
+    setEligibility(
+      _address: string,
+      _eligible: boolean,
+      overrides?: Overrides & { from?: string }
+    ): Promise<PopulatedTransaction>;
+
+    activityCompleted(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     deadline(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -299,23 +321,6 @@ export interface Pulse extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    mintToken(
-      _address: string,
-      overrides?: Overrides & { from?: string }
-    ): Promise<PopulatedTransaction>;
-
     pulseToken(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
-    setDeadline(
-      _newDeadlineOne: BigNumberish,
-      _newDeadlineTwo: BigNumberish,
-      overrides?: Overrides & { from?: string }
-    ): Promise<PopulatedTransaction>;
-
-    setEligibility(
-      _address: string,
-      _eligible: boolean,
-      overrides?: Overrides & { from?: string }
-    ): Promise<PopulatedTransaction>;
   };
 }

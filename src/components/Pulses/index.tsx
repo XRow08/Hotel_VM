@@ -35,13 +35,13 @@ export function Pulses() {
           </li>
           <li className="flex items-center justify-between text-gray-300 text-start border-b py-4">
             <h1 className="w-1/2">New Feature App</h1>
-            <h1 className="w-1/3">24/05/2024</h1>
-            <Button bgColor="white" className="w-24" children={"Start"} onClick={() => push("/execute")} />
+            <h1 className="w-1/3">16/05/2024</h1>
+            <Button bgColor="white" className="w-20" children={"Start"} onClick={() => push("/execute")} />
           </li>
           <li className="flex items-center justify-between text-gray-300 text-start border-b py-4">
             <h1 className="w-1/2">New Feature App</h1>
-            <h1 className="w-1/3">24/05/2024</h1>
-            <Button bgColor="white" className="w-24" children={"Start"} onClick={() => push("/execute")} />
+            <h1 className="w-1/3">16/05/2024</h1>
+            <Button bgColor="white" className="w-20" children={"Start"} onClick={() => push("/execute")} />
           </li>
         </ul>
       ) : (
@@ -53,12 +53,12 @@ export function Pulses() {
           </li>
           <li className="flex items-center justify-between border-b py-6 text-gray-300">
             <h1 className="w-1/2">New Post</h1>
-            <h1 className="w-1/3">24/05/2024</h1>
+            <h1 className="w-1/3">16/05/2024</h1>
             <h1 className="w-1/3 text-center">10</h1>
           </li>
           <li className="flex items-center justify-between border-b py-6 text-gray-300">
             <h1 className="w-1/2">New Post</h1>
-            <h1 className="w-1/3">24/05/2024</h1>
+            <h1 className="w-1/3">16/05/2024</h1>
             <h1 className="w-1/3 text-center">10</h1>
           </li>
         </ul>
