@@ -11,13 +11,18 @@ import { useAccount } from "wagmi";
 export default function Execute() {
   const { push } = useRouter();
   const [tasks, setTasks] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { address } = useAccount();
 
   async function onSubmit() {
-    setTasks(true);
-    console.log(address);
-    await onSetEligibility(address!);
-    await onCompleteActivity(address!);
+    if (window) {
+      setLoading(true);
+      const { ethereum } = window;
+      await onSetEligibility(address!, ethereum);
+      await onCompleteActivity(address!, ethereum);
+      setLoading(false);
+      setTasks(true);
+    }
   }
 
   return (
@@ -69,8 +74,13 @@ export default function Execute() {
       <h1 className="text-center">Tasks</h1>
       {!tasks ? (
         <div className="space-y-4">
-          <Button children={"Like"} bgColor="blue" />
-          <Button children={"Share"} bgColor="blue" onClick={onSubmit} />
+          <Button children={"Like"} bgColor="blue" loading={loading} />
+          <Button
+            children={"Share"}
+            bgColor="blue"
+            loading={loading}
+            onClick={onSubmit}
+          />
         </div>
       ) : (
         <div className="flex flex-col justify-center items-center text-center gap-8">

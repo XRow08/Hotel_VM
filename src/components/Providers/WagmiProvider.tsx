@@ -13,12 +13,6 @@ export default function WagmiProv({ children }: PropsWithChildren) {
     chains: [viemChains.chiliz],
   });
 
-  const configFarcaster = {
-    rpcUrl: "https://spicy-rpc.chiliz.com/",
-    domain: "moonx-pulse.netlify.app",
-    siweUri: "https://moonx-pulse.netlify.app",
-  };
-
   const queryClient = new QueryClient();
 
   return (

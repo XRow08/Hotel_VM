@@ -8,6 +8,7 @@ type Props = {
   type?: "submit" | "reset" | "button";
   onClick?: () => void;
   disabled?: boolean;
+  loading?: boolean;
 };
 
 export function Button({
@@ -17,6 +18,7 @@ export function Button({
   type = "button",
   onClick,
   disabled,
+  loading,
 }: Props) {
   return (
     <button
@@ -32,7 +34,7 @@ export function Button({
         className
       )}
     >
-      {children}
+      {loading ? "Loading..." : children}
     </button>
   );
 }
