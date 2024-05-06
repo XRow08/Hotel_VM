@@ -2,7 +2,7 @@
 import { BackButton } from "@/components/BackButton";
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
-import { onCompleteActivity } from "@/functions";
+import { onCompleteActivity, onMintToken } from "@/functions";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -17,6 +17,7 @@ export default function Execute() {
   async function onSubmit() {
     setLoading(true);
     await onCompleteActivity(address!);
+    await onMintToken(address!)
     setLoading(false);
     setTasks(true);
   }

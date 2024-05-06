@@ -9,6 +9,7 @@ type Props = {
   onClick?: () => void;
   disabled?: boolean;
   loading?: boolean;
+  width?: string
 };
 
 export function Button({
@@ -19,6 +20,7 @@ export function Button({
   onClick,
   disabled,
   loading,
+  width = "w-full"
 }: Props) {
   return (
     <button
@@ -26,7 +28,7 @@ export function Button({
       onClick={onClick}
       disabled={disabled}
       className={classNames(
-        "w-full rounded-lg h-[44px] font-semibold text-lg active:scale-95 transition-all duration-300 ease-in-out",
+        `rounded-lg h-[44px] font-semibold text-lg active:scale-95 transition-all duration-300 ease-in-out ${width}`,
         { "bg-white text-black": bgColor === "white" },
         { "bg-purple text-white": bgColor === "purple" },
         { "bg-blue text-black": bgColor === "blue" },
