@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.zilla {
+  font-family: var(--font-zilla);
+}
+
+.montserrat {
+  font-family: var(--font-montserrat);
+}
+
+html {
+    scroll-behavior: smooth;
+}

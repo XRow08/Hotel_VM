@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Zilla_Slab, Montserrat } from "next/font/google";
 import "./globals.css";
-import Providers from "@/components/Providers";
 
-const inter = Inter({
+const zilla = Zilla_Slab({
   subsets: ["latin-ext"],
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-zilla",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin-ext"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-montserrat",
 });
 
 export const metadata: Metadata = {
-  title: "Moonx",
-  description: "Moonx",
+  title: "Hotel Van Monet",
+  description: "Descubra o Conforto e a Conveniência no Coração de Miracatu",
 };
 
 export default function RootLayout({
@@ -20,8 +26,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Providers>{children}</Providers>
+      <body className={`${zilla.variable} ${montserrat.variable}`}>
+        {children}
       </body>
     </html>
   );
