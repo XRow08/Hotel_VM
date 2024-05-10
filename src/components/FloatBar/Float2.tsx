@@ -25,11 +25,11 @@ export function Float2({ scrollPosition }: { scrollPosition: number }) {
             />
           </svg>
           <h1 className="montserrat text-xs font-semibold text-white">
-            Procurar resultados
+            Verificar disponibilidade
           </h1>
         </div>
         <button className="rounded-full mr-2 text-black h-7 w-24 montserrat text-xs font-semibold bg-white">
-          Buscar
+          Reservar
         </button>
       </a>
     </div>

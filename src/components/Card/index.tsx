@@ -6,11 +6,14 @@ export function Card({ urlImg, urlImg2 }: { urlImg: string; urlImg2: string }) {
   return (
     <Swiper
       grabCursor={true}
-      slidesPerView={1.05}
+      slidesPerView={1.1}
+      spaceBetween={10}
+      centeredSlides
+      centeredSlidesBounds
       className="h-[300px] w-full bg-white mt-10"
     >
       <SwiperSlide>
-        <div className="overflow-hidden h-full pr-2">
+        <div className="overflow-hidden h-full">
           <Image
             alt="logo"
             width={50000}

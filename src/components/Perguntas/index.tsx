@@ -12,7 +12,7 @@ export function Perguntas() {
     },
     {
       title: "Existem opções de alimentação no local?",
-      desc: "Oferecemos um delicioso buffet de café da manhã e nosso bar do lobby serve refeições leves e bebidas. Restaurantes locais e serviço de quarto também estão disponíveis",
+      desc: "Sim, no Hotel Van Monet temos opções de alimentação disponíveis no local. Nossos hóspedes podem desfrutar do nosso buffet de café da manhã todas as manhãs, e também oferecemos um PDV de conveniência na recepção, onde você pode encontrar uma variedade de bebidas, lanches e outros itens para sua conveniência. Além disso, em determinados horários, nosso bar no saguão oferece drinks e porções para os hóspedes relaxarem e aproveitarem a estadia.",
     },
     {
       title: "O hotel é pet-friendly?",
@@ -20,7 +20,7 @@ export function Perguntas() {
     },
     {
       title: "Que tipos de quartos estão disponíveis?",
-      desc: "Temos uma variedade de quartos para atender às suas necessidades, desde quartos padrão confortáveis até suítes",
+      desc: "No Hotel Van Monet, oferecemos uma variedade de tipos de quartos para atender às necessidades de nossos hóspedes. Nossas opções incluem quartos Padrão e Simples, cada um com suas próprias características e comodidades. Os quartos Padrão são espaçosos e confortáveis, com camas de casal e solteiro, ar-condicionado, televisão e banheiro privativo. Já os quartos Simples oferecem uma opção mais econômica, com camas de casal ou solteiro e todas as comodidades essenciais para uma estadia agradável. Independentemente do tipo de quarto escolhido, garantimos conforto e qualidade em todas as nossas acomodações.",
     },
     {
       title: "O hotel oferece Wi-Fi gratuito?",
@@ -28,7 +28,7 @@ export function Perguntas() {
     },
     {
       title: "O hotel tem estacionamento?",
-      desc: "Disponibilizamos estacionamento no local por uma pequena taxa diária. Espaços são limitados, então recomendamos reservar antecipadamente",
+      desc: "O Hotel Van Monet não possui estacionamento próprio. No entanto, os hóspedes podem estacionar seus veículos nas vagas públicas disponíveis na Praça da Bandeira, em frente ao hotel. Essas vagas oferecem uma opção conveniente para estacionamento durante a estadia. Se precisar de mais alguma informação sobre estacionamento ou outras comodidades, não hesite em nos contatar.",
     },
   ];
   return (

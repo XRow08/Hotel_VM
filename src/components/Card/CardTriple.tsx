@@ -15,11 +15,14 @@ export function CardTriple({
     <Swiper
       grabCursor={true}
       slidesPerView={1.1}
-      initialSlide={1}
+      initialSlide={0}
+      spaceBetween={10}
+      centeredSlides
+      centeredSlidesBounds
       className="h-[300px] w-full bg-white mt-10"
     >
       <SwiperSlide>
-        <div className="overflow-hidden h-full pr-2">
+        <div className="overflow-hidden h-full">
           <Image
             alt="logo"
             width={50000}
@@ -32,7 +35,7 @@ export function CardTriple({
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="overflow-hidden h-full pr-2">
+        <div className="overflow-hidden h-full">
           <Image
             alt="logo"
             width={50000}

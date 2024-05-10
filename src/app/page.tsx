@@ -1,5 +1,6 @@
 "use client";
 import { Card } from "@/components/Card";
+import { CardRoom } from "@/components/Card/CardRoom";
 import { CardTriple } from "@/components/Card/CardTriple";
 import { Coments } from "@/components/Card/Coments";
 import { FloatBar } from "@/components/FloatBar";
@@ -10,10 +11,12 @@ import { NoCigareteIcon } from "@/components/Icons/NoCigareteIcon";
 import { WifiIcon } from "@/components/Icons/WifiIcon";
 import { Perguntas } from "@/components/Perguntas";
 import { WhatsApp } from "@/components/WhatsApp";
+import useResponsive from "@/hooks/useResponsive";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Home() {
+  const responsive = useResponsive();
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
     const position = window.pageYOffset;
@@ -27,6 +30,25 @@ export default function Home() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  if (responsive === "desktop")
+    return (
+      <section className="bg-gradient-to-b from-[#1E0D45] to-[#1D5E79] min-h-screen flex flex-col items-center justify-center">
+        <Image
+          alt="logo"
+          width={500}
+          height={500}
+          src={"/images/logo_white.png"}
+          loading="lazy"
+          draggable={false}
+          className="object-cover w-52 mb-10"
+        />
+        <h1 className="font-bold zilla text-[28px]">Site em construção</h1>
+        <h1 className="montserrat font-medium">
+          Por favor, acesse pelo celular
+        </h1>
+      </section>
+    );
 
   return (
     <section className="bg-white min-h-screen relative">
@@ -44,10 +66,11 @@ export default function Home() {
         <div className="relative mt-10 z-10">
           <div className="absolute top-14 text-white text-center">
             <h1 className="font-bold zilla text-[28px]">
-              Descubra o Conforto e a Conveniência no Coração de Miracatu
+              Conforto e Conveniência que Você Merece.
             </h1>
             <h1 className="montserrat font-medium">
-              Elegância e conforto em um só lugar
+              No Coração de Miracatu você encontrará o refugio perfeito para
+              recarregar suas energias após um dia agitado.
             </h1>
           </div>
           <Image
@@ -57,7 +80,7 @@ export default function Home() {
             src={"/images/home.png"}
             loading="lazy"
             draggable={false}
-            className="object-cover"
+            className="object-cover rounded-2xl"
           />
         </div>
 
@@ -80,7 +103,13 @@ export default function Home() {
             amplo e acolhedor
           </h1>
         </div>
-        <Card urlImg={"/images/quarto.png"} urlImg2={"/images/quarto3D.png"} />
+        <CardRoom
+          urlImg={"/images/quarto3D.png"}
+          urlImg2={"/images/quarto.png"}
+          urlImg3={"/images/quarto2.jpeg"}
+          urlImg4={"/images/quarto3.jpeg"}
+          urlImg5={"/images/quarto4.jpeg"}
+        />
         <div className="flex items-center justify-center gap-6 mt-8">
           <AlldayIcon />
           <AnimalFriendlyIcon />
@@ -134,8 +163,8 @@ export default function Home() {
         </div>
 
         <Card
-          urlImg={"/images/colchao_mola.png"}
-          urlImg2={"/images/camas.jpg"}
+          urlImg={"/images/camas.jpg"}
+          urlImg2={"/images/colchao_mola.png"}
         />
         <div className="px-4 mt-2 text-center flex flex-col items-center ">
           <div className="flex items-center text-center justify-center">
@@ -206,8 +235,8 @@ export default function Home() {
         </div>
 
         <Card
-          urlImg={"/images/arcondicionado.png"}
-          urlImg2={"/images/arcondicionado2.png"}
+          urlImg={"/images/arcondicionado2.png"}
+          urlImg2={"/images/arcondicionado.png"}
         />
         <div className="px-4 mt-2 text-center flex flex-col items-center ">
           <div className="flex items-center text-center justify-center">
@@ -381,6 +410,51 @@ export default function Home() {
         <Card
           urlImg={"/images/cafe_manha.png"}
           urlImg2={"/images/cafe_manha2.png"}
+        />
+        <div className="px-4 mt-2 text-center flex flex-col items-center ">
+          <div className="flex items-center text-center justify-center">
+            <h1 className="font-bold zilla text-[24px]">
+              Café da manhã incluso
+            </h1>
+          </div>
+
+          <h1 className="montserrat font-medium text-justify text-[14px] text-gray-600">
+            Comece o dia com energia e sabor com nosso café da manhã incluso,
+            servido diariamente no salão do refeitório. Nosso buffet abrangente
+            apresenta uma seleção diversificada de itens frescos e nutritivos
+            que atendem a todos os gostos. Desfrute de uma variedade de pães,
+            frutas frescas, frios, cereais, bebidas quentes e frias, além de
+            pratos quentes como ovos mexidos e salsicha ao molho. Preparado com
+            ingredientes de qualidade, nosso café da manhã é a maneira perfeita
+            de preparar-se para um dia de atividades ou relaxamento
+          </h1>
+          <svg
+            width="21"
+            height="22"
+            viewBox="0 0 21 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6.75877 10.998L7.4438 10.9315C7.69498 10.9094 7.92332 11.0201 8.08316 11.1972L8.99654 12.4367C9.5674 11.7727 10.1154 11.0865 10.6635 10.4003L10.0469 9.692C9.88708 9.51492 9.84141 9.2493 9.93275 9.02795L10.1839 8.38604C10.5721 7.36784 10.3894 6.23896 9.70441 5.37571L6.0509 0.815931C5.75405 0.439638 5.20603 0.395369 4.81784 0.705256C4.47532 0.993009 4.45249 1.52425 4.7265 1.85627L7.74065 5.61919C7.94616 5.88481 7.87765 6.2611 7.58081 6.43818C7.32963 6.59312 6.98711 6.50458 6.7816 6.28323L3.79029 2.52031C3.49344 2.14402 2.94542 2.09975 2.55723 2.40964C2.21472 2.69739 2.19188 3.22863 2.46589 3.56065L5.48004 7.32357C5.68555 7.58919 5.61705 7.96548 5.3202 8.14256C5.06902 8.2975 4.7265 8.20896 4.52099 7.98762L1.55252 4.26896C1.2785 3.91481 0.753313 3.80413 0.365128 4.06975C-0.0458919 4.33537 -0.114395 4.88874 0.182452 5.2429L3.85879 9.80267C4.54383 10.6659 5.63988 11.1086 6.75877 10.998Z"
+              fill="#232329"
+            />
+            <path
+              d="M13.7689 13.9419C13.2437 14.6502 12.6272 15.5356 11.965 16.4431L15.3673 21.0472C15.7327 21.5563 16.4634 21.6448 16.9658 21.2685L17.9933 20.4938C18.4957 20.1175 18.5642 19.4092 18.1531 18.9444L13.7689 13.9419Z"
+              fill="#232329"
+            />
+            <path
+              d="M20.2996 1.56851C20.0941 1.05941 19.3862 0.948739 19.0437 1.39144L12.2619 9.95761C10.1611 12.6138 8.26584 14.8273 5.9824 17.3285L4.68083 18.878C4.26981 19.3649 4.36115 20.0954 4.88634 20.4938L5.91389 21.2464C6.46192 21.6448 7.21545 21.512 7.60364 20.9808C9.06504 18.8558 12.513 13.9419 13.8603 12.1932L15.4587 13.2114C16.098 13.5656 16.8973 13.3664 17.2854 12.7687C18.0618 11.5292 19.4775 8.98368 20.5051 7.03582C21.4641 5.2429 20.8248 2.91874 20.2996 1.56851Z"
+              fill="#232329"
+            />
+          </svg>
+
+          <div className="w-28 h-[1px] mb-6 mt-28 bg-[#989898]" />
+        </div>
+
+        <Card
+          urlImg={"/images/conveniencia.jpeg"}
+          urlImg2={"/images/conveniencia2.jpeg"}
         />
         <div className="px-4 mt-2 text-center flex flex-col items-center ">
           <div className="flex items-center text-center justify-center">
