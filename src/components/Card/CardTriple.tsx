@@ -1,6 +1,7 @@
-import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/effect-coverflow";
+import { EffectCoverflow } from "swiper/modules";
 
 export function CardTriple({
   urlImg,
@@ -13,33 +14,36 @@ export function CardTriple({
 }) {
   return (
     <Swiper
+      modules={[EffectCoverflow]}
+      effect={"coverflow"}
       grabCursor={true}
+      coverflowEffect={{
+        rotate: 50,
+        stretch: 0,
+        modifier: 1,
+      }}
       slidesPerView={1.1}
       initialSlide={0}
-      spaceBetween={10}
       centeredSlides
       centeredSlidesBounds
-      className="h-[300px] w-full bg-white mt-10"
+      spaceBetween={10}
+      className="h-[300px] lg:h-[400px] w-full bg-white mt-10 lg:mt-0 lg:p-1"
     >
-      <SwiperSlide>
+      <SwiperSlide className="lg:p-1">
         <div className="overflow-hidden h-full">
-          <Image
+          <img
             alt="logo"
-            width={50000}
-            height={50000}
             src={urlImg}
             loading="lazy"
             draggable={false}
-            className="object-cover w-full h-full border-l-0 border-2 border-[#186B94] rounded-r-2xl"
+            className="object-cover w-full h-full border-l-0 lg:border-l-2 border-2 border-[#186B94] rounded-r-2xl lg:rounded-xl"
           />
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className="overflow-hidden h-full">
-          <Image
+          <img
             alt="logo"
-            width={50000}
-            height={50000}
             src={urlImg2}
             loading="lazy"
             draggable={false}
@@ -47,15 +51,13 @@ export function CardTriple({
           />
         </div>
       </SwiperSlide>
-      <SwiperSlide>
-        <Image
+      <SwiperSlide className="lg:p-1">
+        <img
           alt="logo"
-          width={50000}
-          height={50000}
           src={urlImg3}
           loading="lazy"
           draggable={false}
-          className="object-cover w-full h-full border-r-0 rounded-l-2xl border-2 border-[#186B94]"
+          className="object-cover w-full h-full border-r-0 lg:border-r-2 rounded-l-2xl lg:rounded-xl border-2 border-[#186B94]"
         />
       </SwiperSlide>
     </Swiper>

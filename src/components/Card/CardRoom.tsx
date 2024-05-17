@@ -1,6 +1,8 @@
-import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/effect-coverflow";
+import useResponsive from "@/hooks/useResponsive";
 
 export function CardRoom({
   urlImg,
@@ -15,78 +17,77 @@ export function CardRoom({
   urlImg4: string;
   urlImg5: string;
 }) {
+  const responsive = useResponsive();
+  const desktop = responsive === "desktop";
   return (
     <Swiper
+      modules={[EffectCoverflow]}
+      effect={"coverflow"}
       grabCursor={true}
-      slidesPerView={1.1}
-      initialSlide={1}
+      coverflowEffect={{
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      }}
+      slidesPerView={desktop ? 1.2 : 1.1}
+      initialSlide={desktop ? 0 : 1}
       centeredSlides
       centeredSlidesBounds
       spaceBetween={10}
-      className="h-[300px] w-full bg-white mt-10"
+      className="h-[300px] lg:h-[400px] w-full bg-white mt-10 lg:mt-0 lg:p-1"
     >
-      <SwiperSlide>
-        <div className="overflow-hidden h-full">
-          <Image
-            alt="logo"
-            width={50000}
-            height={50000}
-            src={urlImg}
-            loading="lazy"
-            draggable={false}
-            className="object-cover w-full h-full border-l-0 border-2 border-[#186B94] rounded-r-2xl"
-          />
-        </div>
+      <SwiperSlide className="bg-white lg:p-1">
+        <img
+          alt="logo"
+          src={urlImg}
+          loading="lazy"
+          draggable={false}
+          className="object-cover w-full h-full border-l-0 lg:border-l-2 border-2 border-[#186B94] bg-white rounded-r-lg lg:rounded-lg"
+        />
       </SwiperSlide>
       <SwiperSlide>
         <div className="overflow-hidden h-full">
-          <Image
+          <img
             alt="logo"
-            width={50000}
-            height={50000}
             src={urlImg2}
             loading="lazy"
             draggable={false}
-            className="object-cover w-full h-full border-2 border-[#186B94] rounded-2xl"
+            className="object-cover w-full h-full border-2 border-[#186B94] rounded-lg"
           />
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className="overflow-hidden h-full">
-          <Image
+          <img
             alt="logo"
-            width={50000}
-            height={50000}
             src={urlImg3}
             loading="lazy"
             draggable={false}
-            className="object-cover w-full h-full border-2 border-[#186B94] rounded-2xl"
+            className="object-cover w-full h-full border-2 border-[#186B94] rounded-lg"
           />
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className="overflow-hidden h-full">
-          <Image
+          <img
             alt="logo"
-            width={50000}
-            height={50000}
             src={urlImg4}
             loading="lazy"
             draggable={false}
-            className="object-cover w-full h-full border-2 border-[#186B94] rounded-2xl"
+            className="object-cover w-full h-full border-2 border-[#186B94] rounded-lg"
           />
         </div>
       </SwiperSlide>
-      <SwiperSlide>
+      <SwiperSlide className="bg-white lg:p-1">
         <div className="overflow-hidden h-full">
-          <Image
+          <img
             alt="logo"
-            width={50000}
-            height={50000}
             src={urlImg5}
             loading="lazy"
             draggable={false}
-            className="object-cover w-full h-full border-2 border-[#186B94] rounded-2xl"
+            className="object-cover w-full h-full border-2 border-[#186B94] rounded-lg"
           />
         </div>
       </SwiperSlide>

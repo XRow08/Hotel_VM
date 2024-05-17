@@ -14,8 +14,8 @@ export function OneComment({
       className="bg-white flex flex-col justify-between text-black rounded overflow-hidden h-[220px]"
     >
       <div className="p-3 flex flex-col items-start gap-2">
-        <h1 className="font-semibold zilla text-[20px]">{name}</h1>
-        <p className="montserrat text-start leading-4">{comment}</p>
+        <h1 className="font-semibold zilla text-[20px] lg:text-2xl">{name}</h1>
+        <p className="montserrat text-start lg:text-lg leading-4 lg:leading-6">{comment}</p>
       </div>
       <div className="space-y-2">
         <Stars />

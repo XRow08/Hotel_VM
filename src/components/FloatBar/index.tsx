@@ -1,11 +1,11 @@
 export function FloatBar() {
   return (
     <div
-      className={`w-full h-24 flex items-center pt-6  justify-end sticky top-0 z-50`}
+      className={`w-full h-24 lg:w-96 flex items-center pt-6  justify-end sticky top-0 z-50`}
     >
       <a
         href="https://hotels.cloudbeds.com/pt-br/reservas/KmjgH4#checkin=2024-05-08&checkout=2024-05-09"
-        className="w-full h-11 flex items-center justify-between drop-shadow-[0px_15px_25px_rgba(0,0,0,.7)] rounded-2xl border-2 border-white"
+        className="w-full h-11 flex items-center justify-between drop-shadow-[0px_15px_25px_rgba(0,0,0,.7)] rounded-2xl lg:rounded-xl border-2 border-white"
       >
         <div className="flex items-center gap-2 pl-2">
           <svg

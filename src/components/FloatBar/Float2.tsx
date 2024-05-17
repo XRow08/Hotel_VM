@@ -1,13 +1,13 @@
 export function Float2({ scrollPosition }: { scrollPosition: number }) {
   return (
     <div
-      className={`w-full bg-[#1D5E79] h-24 pt-6 px-4 flex items-center transition-all duration-100 ease-in-out fixed top-0 justify-end z-50 ${
+      className={`w-full bg-[#1D5E79] h-24 pt-6 px-4 flex items-center justify-center transition-all duration-100 ease-in-out fixed top-0 justify-end z-50 ${
         scrollPosition >= 730 ? "opacity-100 " : "opacity-0"
       }`}
     >
       <a
         href="https://hotels.cloudbeds.com/pt-br/reservas/KmjgH4#checkin=2024-05-08&checkout=2024-05-09"
-        className="w-full h-11 flex items-center justify-between drop-shadow-[0px_15px_25px_rgba(0,0,0,.7)] rounded-2xl border-2 border-white"
+        className="w-full lg:w-96  h-11 flex items-center justify-between drop-shadow-[0px_15px_25px_rgba(0,0,0,.7)] rounded-2xl border-2 border-white"
       >
         <div className="flex items-center gap-2 pl-2">
           <svg

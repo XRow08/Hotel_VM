@@ -10,7 +10,7 @@ export function Pergunta({ item, index }: any) {
     >
       <input type="checkbox" />
       <div className="collapse-title text-start flex items-center justify-between w-full pr-4">
-        <h1 className="montserrat font-semibold" children={item.title} />
+        <h1 className="montserrat font-semibold lg:text-[20px]" children={item.title} />
         <svg
          className="min-w-[24px] h-[24px] min-h-[24px]"
           viewBox="0 0 24 24"
@@ -25,7 +25,7 @@ export function Pergunta({ item, index }: any) {
           />
         </svg>
       </div>
-      <h1 className={`text-[14px] text-start collapse-content font-medium`}>
+      <h1 className={`text-[14px] lg:text-base text-start collapse-content font-medium`}>
         {item.desc}
       </h1>
     </div>

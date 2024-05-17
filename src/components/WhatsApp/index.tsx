@@ -1,7 +1,10 @@
 export function WhatsApp() {
   return (
-    <a href="" className="fixed bottom-4 right-4 z-[9999]">
-      <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+    <a
+      href="https://api.whatsapp.com/send/?phone=5513988779074&text&type=phone_number&app_absent=0"
+      className="fixed bottom-4 right-4 lg:bottom-20 lg:right-20 w-14 lg:w-14 hover:-translate-y-3 transition-all ease-in-out duration-300 z-[9999]"
+    >
+      <svg width="100%" height="100%" viewBox="0 0 56 56" fill="none">
         <rect width="56" height="56" rx="28" fill="#14FF48" />
         <path
           fillRule="evenodd"

@@ -34,12 +34,12 @@ export function Perguntas() {
   return (
     <div className="bg-gradient-to-b text-center from-[#1E0D45] text-gray-100 to-[#1D5E79] drop-shadow-[0px_15px_25px_rgba(0,0,0,.7)] py-6 flex flex-col items-center justify-center ">
       <div className="px-10">
-        <h1 className="font-bold zilla text-[28px]">Perguntas Frequentes</h1>
-        <h1 className="font-medium montserrat text-[16px]">
+        <h1 className="font-bold zilla text-[28px] lg:text-[52px]">Perguntas Frequentes</h1>
+        <h1 className="font-medium montserrat text-[16px] lg:text-[24px] lg:font-normal">
           Tire suas dúvidas rapidamente com nosso FAQ
         </h1>
       </div>
-      <div className="flex flex-col items-center w-full h-full my-8">
+      <div className="flex flex-col items-center w-full h-full my-8 lg:w-3/5">
         {asks.map((e, i) => (
           <Pergunta key={i} item={e} index={i} />
         ))}

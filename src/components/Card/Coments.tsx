@@ -4,14 +4,18 @@ import { Pagination, EffectCoverflow } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
+import useResponsive from "@/hooks/useResponsive";
 
 export function Coments() {
+  const responsive = useResponsive();
+  const desktop = responsive === "desktop";
   return (
     <Swiper
       grabCursor={true}
-      centeredSlides={true}
-      slidesPerView={1.2}
-      spaceBetween={10}
+      centeredSlides
+      centeredSlidesBounds
+      slidesPerView={desktop ? 3.3 : 1.2}
+      spaceBetween={desktop ? 40 : 10}
       initialSlide={2}
       loop
       modules={[Pagination, EffectCoverflow]}
